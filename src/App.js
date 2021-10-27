@@ -4,11 +4,12 @@ import SearchBar from './SearchBar'
 
 function MyApp() {
 
-    async function searchByTitle(songTitle) {
+    async function searchByTitle(song) {
+        const songTitle = song.val;
         var resultLabel = document.getElementById("searchResult");
         try {
-            const response = await axios.get('http://localhost:5000/songs?title=' + songTitle);
-            resultLabel.innerHTML = response.data.title;
+            const response = await axios.get('http://localhost:5000/songs/' + songTitle);
+            resultLabel.innerHTML = response.data[0].title;
         }
         catch {
             resultLabel.innerHTML = "No result found."
