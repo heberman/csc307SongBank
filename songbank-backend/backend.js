@@ -12,7 +12,7 @@ app.listen(port, () => {
 });
 
 const songs = {
-    song_list:
+    song_list :
     [
         {
             title: 'Easy On Me',
@@ -196,14 +196,13 @@ const songs = {
     ]
 }
 
-app.get('/songs', (req, res) => {
-    const title = req.query.title;
+app.get('/songs/:title', async (req, res) => {
+    const title = req.params['title'];
     if (title !== undefined){
         let result = findSongByTitle(title);
-        if (result === undefined || result.length == 0)
+        if (result === undefined)
             res.status(404).send('Resource not found.');
         else {
-            result = {song_list: result};
             res.send(result);
         }
     }
