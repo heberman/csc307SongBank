@@ -27,6 +27,7 @@ function Form(props) {
                 value={query.val}
                 onChange={handleChange} />
             <input type="button" value="Submit" onClick={submitForm} />
+            <label id="searchResult">Result</label>
         </form>
     );
 
