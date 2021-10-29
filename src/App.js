@@ -1,6 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import SearchBar from './SearchBar'
+//import SearchBar from './SearchBar'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+// We will create these two pages in a moment
+
+import HomePage from './pages/HomePage';
+
+import SongPage from './pages/SongPage';
+
 
 function MyApp() {
 
@@ -17,9 +25,18 @@ function MyApp() {
     }
 
     return (
-        <div>
-            <SearchBar handleSubmit={searchByTitle}/>
-        </div>
+        <>
+        <BrowserRouter>
+        <Switch>
+            <Route exact path='/' component={HomePage} />
+            <Route path='/:id' component={SongPage} />
+        </Switch>
+        </BrowserRouter>
+        {/* <div>
+            <SearchBar handleSubmit={searchByTitle} />
+        </div> */}
+        </>
+
     );
 }
 
