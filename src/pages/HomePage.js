@@ -1,24 +1,31 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import SearchBar from '../SearchBar'
+import SearchBar from '../SearchBar';
 
 function HomePage() {
+    let title = "/songs";
 
     async function searchByTitle(song) {
         const songTitle = song.val;
+        title = "/"+song.val;
         var resultLabel = document.getElementById("searchResult");
+        var playButton = document.getElementById("play-button");
         try {
             const response = await axios.get('http://localhost:5000/songs/' + songTitle);
             resultLabel.innerHTML = response.data[0].title;
+            playButton.style.display = "block";
         }
         catch {
-            resultLabel.innerHTML = "No result found."
+            resultLabel.innerHTML = "No result found.";
+            playButton.style.display = "None";
         }
+        return songTitle;
     }
-    
+
     return (
         <>
+        <div id = "top" style={{color: "blue"}}></div>
         <h1>Song Search</h1>
         <p>Type in the title of the song you want to listen to</p>
 
@@ -28,10 +35,10 @@ function HomePage() {
         </div>
         <div>
             <SearchBar handleSubmit={searchByTitle}/>
-            <Link to="/play"><button>Your desired link.</button></Link>
+             <Link to={"/traitor"}><button style={{display: 'none'}} id="play-button" >Play</button></Link> 
         </div>
+        <div class="margin-color"></div>
         </>
     );
-
 }
 export default HomePage;

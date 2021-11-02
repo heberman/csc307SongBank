@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './index.css';
 
 function Form(props) {
     const [query, setQuery] = useState(
@@ -10,12 +11,14 @@ function Form(props) {
     function handleChange(event) {
         const { value } = event.target;
         setQuery({val: value});
+        console.log(value.val);
     }
 
     function submitForm() {
         props.handleSubmit(query);
         setQuery({val: ''});
     }
+
 
     return (
         <form>
@@ -25,11 +28,12 @@ function Form(props) {
                 name="search"
                 id="search"
                 value={query.val}
-                onChange={handleChange} />
+                onChange={handleChange}/>
             <input type="button" value="Submit" onClick={submitForm} />
-            <label id="searchResult">Result</label>
+            <label id="searchResult"></label>
+            {/* <Link to="/play"><button style={{display: 'none'}} id="play-button">Play</button></Link> */}
         </form>
     );
-
 }
+
 export default Form;
