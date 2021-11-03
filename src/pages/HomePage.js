@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar';
+import './HomePage.css';
+//import '../index.css';
 
 function HomePage() {
     let title = "/songs";
@@ -25,7 +27,7 @@ function HomePage() {
 
     return (
         <>
-        <div id = "top" style={{color: "blue"}}></div>
+        <div id="top"></div>
         <h1>Song Search</h1>
         <p>Type in the title of the song you want to listen to</p>
 
@@ -37,7 +39,7 @@ function HomePage() {
             <SearchBar handleSubmit={searchByTitle}/>
              <Link to={"/traitor"}><button style={{display: 'none'}} id="play-button" >Play</button></Link> 
         </div>
-        <div class="margin-color"></div>
+        <Link to={"/Playlists"}><button>Playlists</button></Link> 
         </>
     );
 }
