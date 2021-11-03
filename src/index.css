@@ -378,7 +378,7 @@ html {
 
 body {
   color: #404040;
-  background: white;
+  background: rgb(221, 228, 247);
   font-size: 1rem;
 }
 
@@ -654,6 +654,7 @@ dd {
   }
 }
 
+
 /**
  * Helpers
  */
@@ -781,9 +782,9 @@ dd {
 .button, a.button, button, [type=submit], [type=reset], [type=button] {
   -webkit-appearance: none;
   display: inline-block;
-  border: 1px solid #0366ee;
+  border: 1px solid #000000;
   border-radius: 4px;
-  background: #0366ee;
+  background: #405fc4;
   color: #ffffff;
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -800,7 +801,7 @@ dd {
 
 .button:hover, a.button:hover, button:hover, [type=submit]:hover, [type=reset]:hover, [type=button]:hover {
   border: 1px solid #0250bc;
-  background: #0250bc;
+  background: #1927a1;
   color: #ffffff;
   text-decoration: none;
 }
@@ -874,7 +875,7 @@ a.full-button {
   border-radius: 4px;
   padding: 0.75rem;
   outline: none;
-  background: transparent;
+  background-color: white;
   margin-bottom: 0.5rem;
   font-size: 1rem;
   width: 100%;
@@ -883,7 +884,7 @@ a.full-button {
 }
 
 [type=color]:hover, [type=date]:hover, [type=datetime]:hover, [type=datetime-local]:hover, [type=email]:hover, [type=month]:hover, [type=number]:hover, [type=password]:hover, [type=search]:hover, [type=tel]:hover, [type=text]:hover, [type=url]:hover, [type=week]:hover, [type=time]:hover, select:hover, textarea:hover {
-  border: 1px solid #c5c5c5;
+  border: 1px solid #5c5c5c;
 }
 
 [type=color]:focus, [type=color]:active, [type=date]:focus, [type=date]:active, [type=datetime]:focus, [type=datetime]:active, [type=datetime-local]:focus, [type=datetime-local]:active, [type=email]:focus, [type=email]:active, [type=month]:focus, [type=month]:active, [type=number]:focus, [type=number]:active, [type=password]:focus, [type=password]:active, [type=search]:focus, [type=search]:active, [type=tel]:focus, [type=tel]:active, [type=text]:focus, [type=text]:active, [type=url]:focus, [type=url]:active, [type=week]:focus, [type=week]:active, [type=time]:focus, [type=time]:active, select:focus, select:active, textarea:focus, textarea:active {
