@@ -19,7 +19,7 @@ function HomePage() {
             playButton.style.display = "block";
         }
         catch {
-            resultLabel.innerHTML = "No result found.";
+            resultLabel.innerHTML = "No result found..";
             playButton.style.display = "None";
         }
         return songTitle;
