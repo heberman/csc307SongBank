@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import './HomePage.css';
-//import '../index.css';
 
 function HomePage() {
 
