@@ -7,9 +7,7 @@ function SongPage() {
     let { id } = useParams();
 
     async function openSpot() {
-        var path = window.location.pathname;
-        var page = path.split("/").pop();
-        const response = await axios.get('http://localhost:5000/songs/' + page);
+        const response = await axios.get('http://localhost:5000/songs/' + id);
         var link = response.data[0].link;
         window.open(link);
     }
