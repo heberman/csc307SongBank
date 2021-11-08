@@ -9,28 +9,18 @@ import HomePage from './pages/HomePage';
 
 import SongPage from './pages/SongPage';
 
+import PlaylistPage from './pages/PlaylistPage';
 
 function MyApp() {
-
-    async function searchByTitle(song) {
-        const songTitle = song.val;
-        var resultLabel = document.getElementById("searchResult");
-        try {
-            const response = await axios.get('http://localhost:5000/songs/' + songTitle);
-            resultLabel.innerHTML = response.data[0].title;
-        }
-        catch {
-            resultLabel.innerHTML = "No result found."
-        }
-    }
 
     return (
         <>
         <BrowserRouter>
-        <Switch>
+        <switch>
             <Route exact path='/' component={HomePage} />
+            <Route path='/Playlists'component={PlaylistPage}/> 
             <Route path='/:id' component={SongPage} />
-        </Switch>
+        </switch>
         </BrowserRouter>
         {/* <div>
             <SearchBar handleSubmit={searchByTitle} />
@@ -41,3 +31,5 @@ function MyApp() {
 }
 
 export default MyApp;
+
+<Route path='/Playlists' component={PlaylistPage} />

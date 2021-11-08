@@ -6,11 +6,9 @@ import './HomePage.css';
 //import '../index.css';
 
 function HomePage() {
-    let title = "/songs";
 
     async function searchByTitle(song) {
         const songTitle = song.val;
-        title = "/"+song.val;
         var resultLabel = document.getElementById("searchResult");
         var playButton = document.getElementById("play-button");
         try {
