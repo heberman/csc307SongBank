@@ -25,18 +25,18 @@ function HomePage() {
     return (
         <>
         <div id="top"></div>
-        <h1>Song Search</h1>
-        <p>Type in the title of the song you want to listen to</p>
+        <h1><center>Song Search</center></h1>
+        <p><center>Type in the title of the song you want to listen to</center></p>
 
         <div className="container">
         <p>
         </p>
         </div>
-        <div>
-            <SearchBar handleSubmit={searchByTitle}/>
-             <Link to={"/traitor"}><button style={{display: 'none'}} id="play-button" >Play</button></Link> 
+        <div align="center">
+            <SearchBar handleSubmit={searchByTitle} />
+            <Link to={"/traitor"}><button style={{display: 'none'}} id="play-button" >Play</button></Link> 
         </div>
-        <Link to={"/Playlists"}><button>Playlists</button></Link> 
+        <center><Link to={"/Playlists"}><button>Playlists</button></Link></center>
         </>
     );
 }
