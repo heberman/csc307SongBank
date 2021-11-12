@@ -27,6 +27,4 @@ const SongSchema = new mongoose.Schema({
 
 }, {collection : 'songs_list'});
 
-const Song = mongoose.model("Song", SongSchema);
-
-module.exports = Song;
+module.exports = SongSchema;

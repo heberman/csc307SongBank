@@ -17,6 +17,10 @@ app.listen(process.env.PORT || port, () => {
     console.log("REST API is listening.");
   });
 
+const playlists = {
+    playlist_list : []
+}
+
 const songs = {
     song_list :
     [
@@ -185,8 +189,8 @@ const songs = {
     ]
 }
 
-app.get('/songs/:title', async (req, res) => {
-    const title = req.params['title'];
+app.get('/songs', async (req, res) => {
+    const title = req.query['title'];
     const result = await songServices.findSongByTitle(title);
     if (result === undefined || result === null)
         res.status(404).send('Resource not found.');
@@ -194,6 +198,32 @@ app.get('/songs/:title', async (req, res) => {
         res.send(result);
     }
 });
+
+app.get('/playlists', async (req, res) => {
+    const title = req.query['title'];
+    if (title !== undefined) {
+        const result = await songServices.findPlaylistByTitle(title);
+        if (result === undefined || result === null)
+            res.status(404).send('Resource not found.');
+        else {
+            res.send(result);
+        }
+    } else {
+        const result = await songServices.getPlaylists();
+        res.send(result);
+    }
+});
+
+app.post('/playlists', (req, res) => {
+    const playlistToAdd = req.body;
+    songServices.addPlaylist(playlistToAdd);
+    addPlaylistLocally(playlistToAdd);
+    res.status(201).send(playlistToAdd).end();
+});
+
+function addPlaylistLocally(playlist){
+    playlists['playlist_list'].push(playlist);
+}
 
 // const findSongByTitle = (title) => {
 //     return songs['song_list'].filter( (song) => song['title'] === title);
