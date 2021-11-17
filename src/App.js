@@ -18,7 +18,7 @@ function MyApp() {
         <switch>
             <Route exact path='/' component={HomePage} />
             <Route path='/Playlists' component={PlaylistPage}/> 
-            <Route path='/:id' component={SongPage} />
+            <Route path='/songs?title=:id' component={SongPage} />
         </switch>
         </BrowserRouter>
         {/* <div>

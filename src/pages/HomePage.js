@@ -11,7 +11,7 @@ function HomePage() {
         var resultLabel = document.getElementById("searchResult");
         var playButton = document.getElementById("play-button");
         try {
-            const response = await axios.get('http://localhost:5000/songs/' + songTitle);
+            const response = await axios.get('http://localhost:5000/songs?title=' + songTitle);
             resultLabel.innerHTML = response.data[0].title;
             playButton.style.display = "block";
         }
@@ -34,7 +34,7 @@ function HomePage() {
         </div>
         <div align="center">
             <SearchBar handleSubmit={searchByTitle} />
-            <Link to={"/traitor"}><button style={{display: 'none'}} id="play-button" >Play</button></Link> 
+            <Link to={"/songs?title=traitor"}><button style={{display: 'none'}} id="play-button" >Play</button></Link> 
         </div>
         <center><Link to={"/Playlists"}><button>Playlists</button></Link></center>
         </>
