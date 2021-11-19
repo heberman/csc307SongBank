@@ -24,19 +24,19 @@ function HomePage() {
 
     return (
         <>
-        <div id="top"></div>
-        <h1><center>Song Search</center></h1>
-        <p><center>Type in the title of the song you want to listen to</center></p>
+            <div id="top"></div>
+            <h1><center>Song Search</center></h1>
+            <p><center>Type in the title of the song you want to listen to</center></p>
 
-        <div className="container">
-        <p>
-        </p>
-        </div>
-        <div align="center">
-            <SearchBar handleSubmit={searchByTitle} />
-            <Link to={"/songs?title=traitor"}><button style={{display: 'none'}} id="play-button" >Play</button></Link> 
-        </div>
-        <center><Link to={"/Playlists"}><button>Playlists</button></Link></center>
+            <div className="container">
+                <p>
+                </p>
+            </div>
+            <div align="center">
+                <SearchBar handleSubmit={searchByTitle} />
+                <Link to={"/traitor"}><button style={{display: 'none'}} id="play-button" >Play</button></Link>
+            </div>
+            <center><Link to={"/Playlists"}><button>Playlists</button></Link></center>
         </>
     );
 }
