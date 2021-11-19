@@ -219,8 +219,20 @@ app.get('/playlists', async (req, res) => {
     }
 });
 
+function generateID() {
+    let id = "";
+    for (let i=0; i < 6; i++) {
+        id += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+    }
+    for (let j=0; j < 6; j++) {
+        id += String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+    }
+    return id;
+}
+
 app.post('/playlists', (req, res) => {
     const playlistToAdd = req.body;
+    playlistToAdd['_id'] = generateID();
     songServices.addPlaylist(playlistToAdd);
     res.status(201).send(playlistToAdd).end();
 });

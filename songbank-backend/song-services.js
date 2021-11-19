@@ -116,7 +116,7 @@ async function findPlaylistByTitle(title){
 
 async function findPlaylistById(id){
     const playlistModel = getConnection().model("Playlist", PlaylistSchema);
-    return await playlistModel.find({'_id':id});
+    return await playlistModel.findById(id);
 }
 
 // async function findUserByJob(job){
