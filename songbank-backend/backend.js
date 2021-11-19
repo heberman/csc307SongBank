@@ -1,7 +1,12 @@
 const express = require('express');
 const cors = require('cors');
+var querystring = require('querystring');
+const dotenv = require("dotenv");
+dotenv.config();
 
 const songServices = require('./song-services');
+const request = require('superagent');
+const { refreshAccessToken } = require('../spotify-api/spotify-web-api-node/src/server-methods');
 
 const app = express();
 const port = 5000;
@@ -13,8 +18,70 @@ app.use(express.json());
 //     console.log(`Example app listening at http://localhost:${port}`);
 // });
 
+var generateRandomString = function (length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * 
+        charactersLength));
+   }
+   return result;
+}
+
 app.listen(process.env.PORT || port, () => {
     console.log("REST API is listening.");
+  });
+
+  var redirect_uri = 'http://localhost:5000/callback';
+  
+app.get('/login', function(req, res) {
+
+    var state = generateRandomString(16);
+    var scope = "streaming user-read-email user-read-private";
+
+    var auth_query_parameters = new URLSearchParams({
+        response_type: 'code',
+        client_id: process.env.CLIENT_ID,
+        scope: scope,
+        redirect_uri: redirect_uri,
+        state: state
+    })
+    console.log('https://accounts.spotify.com/authorize?' +  auth_query_parameters.toString())
+    res.redirect('https://accounts.spotify.com/authorize?' +  auth_query_parameters.toString());
+});
+
+app.get('/callback', function(req, res) {
+
+    var code = req.query.code || null;
+    var state = req.query.state || null;
+    console/log('callback');
+    if (state === null) {
+      res.redirect('/#' +
+        querystring.stringify({
+          error: 'state_mismatch'
+        }));
+    } else {
+      var authOptions = {
+        url: 'https://accounts.spotify.com/api/token',
+        form: {
+          code: code,
+          redirect_uri: redirect_uri,
+          grant_type: 'authorization_code'
+        },
+        headers: {
+          'Authorization': 'Basic ' + (Buffer.from(process.env.CLIENT_ID + ':' + process.env.CLIENT_SECRET).toString('base64'))
+        },
+        json: true
+      };
+      
+      request.post(authOptions, function (error, response, body){
+          if (!error && response.statusCode === 200) {
+            acess_token = body.access_token;
+            res.redirect("/?token=" + acess_token)
+          }
+      });
+    }
   });
 
 const playlists = {
