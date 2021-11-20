@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const songServices = require('./song-services');
+const songServices = require('./so');
 const request = require('superagent');
 const { refreshAccessToken } = require('../spotify-api/spotify-web-api-node/src/server-methods');
 
@@ -33,7 +34,7 @@ app.listen(process.env.PORT || port, () => {
     console.log("REST API is listening.");
   });
 
-  var redirect_uri = 'http://localhost:5000/callback';
+var redirect_uri = 'http://localhost:5000/callback';
   
 app.get('/login', function(req, res) {
 

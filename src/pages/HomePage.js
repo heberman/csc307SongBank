@@ -14,6 +14,7 @@ function HomePage() {
             const response = await axios.get('http://localhost:5000/songs?title=' + songTitle);
             resultLabel.innerHTML = response.data[0].title;
             playButton.style.display = "block";
+            window.location.replace('http://localhost:3000/songs?title=' + songTitle)
         }
         catch {
             resultLabel.innerHTML = "No result found...";
