@@ -17,7 +17,7 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 npm install
 
 npm install:
--axios
--cors
--react-router-dom
--express
+* axios
+* cors
+* react-router-dom
+* express
