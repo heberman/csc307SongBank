@@ -1,7 +1,4 @@
-<img src="logo.png" alt="logo" width="300" align="center"/>
-
-![Screenshot](logo.png)
-
+<img src="logo.png" alt="logo" width="400" align="center"/>
 
 <h1 align="center">Songbank Project</h1>
 
