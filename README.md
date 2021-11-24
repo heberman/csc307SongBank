@@ -1,4 +1,4 @@
-![alt text](https://github.com/[heberman]/[csc307SongBank]/blob/[dev]/logo.png?raw=true)
+![alt text](https://github.com/[heberman]/[csc307SongBank]/[dev]/logo.png?raw=true)
 
 <h1 align="center">Songbank Project</h1>
 
