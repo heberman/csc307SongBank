@@ -7,7 +7,7 @@ Description: Our Songbank project is a music service that provides users with a 
 <ins>Note:</ins> This project was created using [React](https://create-react-app.dev/docs/getting-started/) and [Node](https://nodejs.org/en/docs/guides/getting-started-guide/).
 
 
-<h4 align="center">Initial Prototype and Setup</h4>
+<h3 align="center">Initial Prototype and Setup</h3>
 
 Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-id=0%3A1) to see our initial design for Songbank. This design gave us a good idea of what we wanted our project to look like once completed. This made the decision process much easier along the way when choosing between different asthetics and visuals.
 
