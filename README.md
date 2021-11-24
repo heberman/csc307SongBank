@@ -1,4 +1,4 @@
-<center>## Songbank Project</center>
+<center>Songbank Project</center>
 
 
 # Getting Started with Create React App
