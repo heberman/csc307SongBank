@@ -12,7 +12,7 @@ Description: Our Songbank project is a music service that provides users with a 
 Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-id=0%3A1) to see our initial design for Songbank. This design gave us a good idea of what we wanted our project to look like once completed. This made the decision process much easier along the way when choosing between different asthetics and visuals.
 
 
-<h4 align="center">How to Setup/Use Songbank</h4>
+<h3 align="center">How to Setup/Use Songbank</h3>
 
 1. Clone Songbank repository [here](https://github.com/heberman/csc307SongBank.git)
 
@@ -31,7 +31,7 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 6. Run frontend with the ***npm start***
 
 
-<h4 align="center">Diagrams</h4>
+<h3 align="center">Diagrams</h3>
 
 Component UML Diagram: <p align="center"><img src="component_uml.png" alt="component" width="400"/></p>
 
