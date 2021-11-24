@@ -1,4 +1,4 @@
-![alt text](https://github.com/[heberman]/[csc307SongBank]/blob/[dev]/image.jpg?raw=true)
+![Screenshot](logo.png)
 
 <h1 align="center">Songbank Project</h1>
 
