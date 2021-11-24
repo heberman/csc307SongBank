@@ -16,6 +16,8 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
   
 npm install
 
+--and--
+
 npm install _____:
 * axios
 * cors
