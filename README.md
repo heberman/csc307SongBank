@@ -13,12 +13,12 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 
 
 <h4 align="center">How to Setup/Use Songbank</h4>
+
+1. Clone Songbank repository [here](https://github.com/heberman/csc307SongBank.git)
   
-npm install
+2. npm install
 
---and--
-
-npm install _____:
+3. npm install _____:
 * axios
 * cors
 * react-router-dom
