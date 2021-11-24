@@ -1,4 +1,4 @@
-<img src="logo.png" alt="logo" width="400" align="center"/>
+<center><img src="logo.png" alt="logo" width="400"/></center>
 
 <h1 align="center">Songbank Project</h1>
 
