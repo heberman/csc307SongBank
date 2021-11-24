@@ -35,7 +35,7 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 
 Component UML Diagram: <p align="center"><img src="component_uml.png" alt="component" width="400"/></p>
 
-Class UML Diagram:<p align="center"><img src="class_uml.png" alt="class" width="200"/></p>
+Class UML Diagram:<p align="center"><img src="class_diagram_uml.png" alt="class" width="200"/></p>
 
 
 [GO TO TOP](#songbank-project)  
