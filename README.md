@@ -15,15 +15,18 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 <h4 align="center">How to Setup/Use Songbank</h4>
 
 1. Clone Songbank repository [here](https://github.com/heberman/csc307SongBank.git)
-  
-2. npm install
 
-3. npm install _____:
+2. Install device-specific [Node](https://nodejs.org/en/download/) Version
+  
+3. npm install
+
+4. npm install _____:
    * axios
    * cors
    * react-router-dom
    * express
 
+5. Run bankend with the 'node songbank-backend/backend.js' command
 
 
 
