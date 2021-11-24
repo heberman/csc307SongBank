@@ -13,6 +13,6 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 
 
 <h4 align="center">How to Setup/Use Songbank/h4>
-  # npm install
+# npm install
 
-  # npm install express
+# npm install express
