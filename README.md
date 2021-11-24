@@ -9,4 +9,4 @@ Description: Our Songbank project is a music service that provides users with a 
 
 <h4 align="center">Initial Prototype and Setup</h4>
 
-Click [here] to see our initial design for Songbank.
+Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-id=0%3A1) to see our initial design for Songbank.
