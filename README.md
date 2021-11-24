@@ -1,3 +1,5 @@
+<img src="logo.png" alt="logo" width="200"/>
+
 ![Screenshot](logo.png)
 
 
