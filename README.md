@@ -12,6 +12,8 @@ Description: Our Songbank project is a music service that provides users with a 
 Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-id=0%3A1) to see our initial design for Songbank. This design gave us a good idea of what we wanted our project to look like once completed. This made the decision process much easier along the way when choosing between different asthetics and visuals.
 
 
+
+
 <h3 align="center">How to Setup/Use Songbank</h3>
 
 1. Clone Songbank repository [here](https://github.com/heberman/csc307SongBank.git)
@@ -33,6 +35,8 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 7. Website should launch in your default browser
 
 
+
+
 <h3 align="center">Diagrams</h3>
 
 Component UML Diagram: <p align="center"><img src="component_uml.png" alt="component" width="400"/></p>
@@ -41,6 +45,7 @@ Class UML Diagram:<p align="center"><img src="class_diagram_uml.png" alt="class"
 
 Similar to our initial design for Songbank, these diagrams proved to be a great stepping stone in creating a good foundation to start the project. Although these 
 UML diagrams are not totally acurate when compared to the final version of Songbank, they are still helpful when trying to visualize the architecture behind it.
+
 
 
 
