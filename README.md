@@ -34,7 +34,7 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
    * react-router-dom
    * express
 
-5. Run bankend with the ***node songbank-backend/backend.js*** command
+5. Run bankend with the ***node songbank-backend/backend.js --prod*** command
 
 6. Run frontend with the ***npm start***
 
