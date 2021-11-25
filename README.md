@@ -30,6 +30,8 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 
 6. Run frontend with the ***npm start***
 
+7. Website should launch in your default browser
+
 
 <h3 align="center">Diagrams</h3>
 
@@ -43,6 +45,8 @@ UML diagrams are not totally acurate when compared to the final version of Songb
 
 
 <h3 align="center">Code Coverage</h3>
+
+Add Code Coverage Results once tests for our website are made.
 
 
 [GO TO TOP](#songbank-project)  
