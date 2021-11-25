@@ -5,7 +5,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const songServices = require('./song-services');
-const songServices = require('./so');
 const request = require('superagent');
 const { refreshAccessToken } = require('../spotify-api/spotify-web-api-node/src/server-methods');
 
@@ -56,7 +55,7 @@ app.get('/callback', function(req, res) {
 
     var code = req.query.code || null;
     var state = req.query.state || null;
-    console/log('callback');
+    console.log('callback');
     if (state === null) {
       res.redirect('/#' +
         querystring.stringify({
@@ -259,10 +258,15 @@ const songs = {
 
 app.get('/songs', async (req, res) => {
     const title = req.query['title'];
-    const result = await songServices.findSongByTitle(title);
-    if (result === undefined || result === null)
-        res.status(404).send('Resource not found.');
-    else {
+    if (title !== undefined) {
+        const result = await songServices.findSongByTitle(title);
+        if (result === undefined || result === null)
+            res.status(404).send('Resource not found.');
+        else {
+            res.send(result);
+        }
+    } else {
+        const result = await songServices.getSongs();
         res.send(result);
     }
 });
@@ -282,17 +286,43 @@ app.get('/playlists', async (req, res) => {
     }
 });
 
+function generateID() {
+    let id = "";
+    for (let i=0; i < 6; i++) {
+        id += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+    }
+    for (let j=0; j < 6; j++) {
+        id += String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+    }
+    return id;
+}
+
 app.post('/playlists', (req, res) => {
     const playlistToAdd = req.body;
+    playlistToAdd['_id'] = generateID();
     songServices.addPlaylist(playlistToAdd);
-    addPlaylistLocally(playlistToAdd);
     res.status(201).send(playlistToAdd).end();
 });
 
-function addPlaylistLocally(playlist){
-    playlists['playlist_list'].push(playlist);
-}
+app.delete('/playlists/:id', (req, res) => {
+    const id = req.params['id'];
+    let result = songServices.findPlaylistById(id);
+    if (result === undefined || result.length == 0)
+        res.status(404).send('Resource not found.');
+    else {
+        songServices.deletePlaylist(id)
+        res.status(204).end();
+    }
+});
 
-// const findSongByTitle = (title) => {
-//     return songs['song_list'].filter( (song) => song['title'] === title);
-// }
+app.put('/playlists/:id', (req, res) => {
+    const id = req.params['id'];
+    let result = songServices.findPlaylistById(id);
+    if (result === undefined || result.length == 0)
+        res.status(404).send('Resource not found.');
+    else {
+        const newPlaylist = req.body;
+        songServices.editPlaylist(id, newPlaylist);
+        res.status(204).end();
+    }
+});
