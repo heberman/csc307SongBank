@@ -65,10 +65,29 @@ function getConnection() {
 
 async function addPlaylist(playlist){
     try{
-        const playlistModel = getConnection().model("Playlist", PlaylistSchema)
+        const playlistModel = getConnection().model("Playlist", PlaylistSchema);
         const playlistToAdd = new playlistModel(playlist);
-        const savedPlaylist = await playlistToAdd.save()
-        return savedPlaylist;
+        return await playlistToAdd.save();
+    }catch(error) {
+        console.log(error);
+        return false;
+    }
+}
+
+async function deletePlaylist(id){
+    try{
+        const playlistModel = getConnection().model("Playlist", PlaylistSchema);
+        return await playlistModel.findByIdAndDelete(id);
+    }catch(error) {
+        console.log(error);
+        return false;
+    }
+}
+
+async function editPlaylist(id, newPlaylist){
+    try{
+        const playlistModel = getConnection().model("Playlist", PlaylistSchema);
+        return await playlistModel.findByIdAndUpdate(id, newPlaylist);
     }catch(error) {
         console.log(error);
         return false;
@@ -76,8 +95,13 @@ async function addPlaylist(playlist){
 }
 
 async function getPlaylists() {
-    const playlistModel = getConnection().model("Playlist", PlaylistSchema)
+    const playlistModel = getConnection().model("Playlist", PlaylistSchema);
     return await playlistModel.find();
+}
+
+async function getSongs() {
+    const songModel = getConnection().model("Song", SongSchema);
+    return await songModel.find();
 }
 
 async function findSongByTitle(title){
@@ -90,6 +114,11 @@ async function findPlaylistByTitle(title){
     return await playlistModel.find({'title':title});
 }
 
+async function findPlaylistById(id){
+    const playlistModel = getConnection().model("Playlist", PlaylistSchema);
+    return await playlistModel.findById(id);
+}
+
 // async function findUserByJob(job){
 //     return await userModel.find({'job':job});
 // }
@@ -97,6 +126,10 @@ async function findPlaylistByTitle(title){
 // exports.getUsers = getUsers;
 exports.findSongByTitle = findSongByTitle;
 exports.findPlaylistByTitle = findPlaylistByTitle;
+exports.findPlaylistById = findPlaylistById;
 exports.getPlaylists = getPlaylists;
+exports.getSongs = getSongs;
 exports.setConnection = setConnection;
 exports.addPlaylist = addPlaylist;
+exports.deletePlaylist = deletePlaylist;
+exports.editPlaylist = editPlaylist;

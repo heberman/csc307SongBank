@@ -1,11 +1,31 @@
 import React from 'react';
-import SearchBar from './SearchBar'
+
+import { BrowserRouter, Route } from 'react-router-dom';
+
+// We will create these two pages in a moment
+
+import HomePage from './pages/HomePage';
+
+import SongPage from './pages/SongPage';
+
+import PlaylistPage from './pages/PlaylistPage';
 
 function MyApp() {
+
     return (
-        <div>
-            <SearchBar />
-        </div>
+        <>
+        <BrowserRouter>
+        <switch>
+            <Route exact path='/' component={HomePage} />
+            <Route path='/Playlists' component={PlaylistPage}/>
+            <Route path='/Songs' component={SongPage} />
+        </switch>
+        </BrowserRouter>
+        {/* <div>
+            <SearchBar handleSubmit={searchByTitle} />
+        </div> */}
+        </>
+
     );
 }
 
