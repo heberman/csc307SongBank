@@ -1,5 +1,7 @@
 ![example workflow](https://github.com/heberman/csc307SongBank/actions/workflows/node.js.yml/badge.svg)
 
+<!-- #Tag -->
+
 <p align="center"><img src="logo.png" alt="logo" width="400"/></p>
 
 <h1 align="center">Songbank Project</h1>
@@ -61,4 +63,4 @@ Add Code Coverage Results once tests for our website are made.
 
 <br/><br/>
 
-[GO TO TOP](example-worklow)  
+[GO TO TOP](#tag)  
