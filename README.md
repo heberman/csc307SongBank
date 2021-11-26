@@ -1,6 +1,6 @@
-![example workflow](https://github.com/heberman/csc307SongBank/actions/workflows/node.js.yml/badge.svg)
-
 <h1 align="center">Songbank Project</h1>
+
+![example workflow](https://github.com/heberman/csc307SongBank/actions/workflows/node.js.yml/badge.svg)
 
 <p align="center"><img src="logo.png" alt="logo" width="400"/></p>
 
