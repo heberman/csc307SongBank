@@ -88,9 +88,10 @@ app.get('/auth/callback', (req, res) => {
 })
 
 app.get('/auth/search/:id', (req, res) => {
-    songTitle = '';
+    //songTitle = '';
     const id = req.params['id']
     console.log(access_token);
+    console.log(id);
     var searchOptions = {
         url: `https://api.spotify.com/v1/search?q=${id}&type=track&limit=1`,
         headers: {
@@ -106,8 +107,9 @@ app.get('/auth/search/:id', (req, res) => {
           //access_token = //body.access_token;
           //console.log(' :) ' + body);
           songTitle = body;
+          res.send(songTitle);
           console.log("hello: " + songTitle);
-          res.redirect('/');
+          //res.redirect('/');
         }
 
       });
