@@ -17,8 +17,8 @@ function MyApp() {
         <BrowserRouter>
         <switch>
             <Route exact path='/' component={HomePage} />
-            <Route path='/Playlists' component={PlaylistPage}/> 
-            <Route path='/:id' component={SongPage} />
+            <Route path='/Playlists' component={PlaylistPage}/>
+            <Route path='/Songs' component={SongPage} />
         </switch>
         </BrowserRouter>
         {/* <div>
@@ -30,5 +30,3 @@ function MyApp() {
 }
 
 export default MyApp;
-
-<Route path='/Playlists' component={PlaylistPage} />
