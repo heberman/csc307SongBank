@@ -19,8 +19,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "server": "node songbank-backend",
+    "dev": "run-p server start"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +39,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "http-proxy-middleware": "^2.0.1",
+    "npm-run-all": "^4.1.5",
+    "request": "^2.88.2"
   }
 }

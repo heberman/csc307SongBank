@@ -3,8 +3,23 @@ const cors = require('cors');
 
 const songServices = require('./song-services');
 
-const app = express();
+var app = express();
 const port = 5000;
+
+///spot api /////////////////////////////////////////////////////////
+
+const request = require('request');
+const dotenv = require('dotenv');
+const { access } = require('fs');
+
+global.access_token = '';
+
+global.songTitle = '';
+
+dotenv.config();
+
+////////////////////////////////////////////////////////////////////
+
 
 app.use(cors());
 app.use(express.json());
@@ -12,10 +27,104 @@ app.use(express.json());
 // app.listen(port, () => {
 //     console.log(`Example app listening at http://localhost:${port}`);
 // });
+// SPOTIFY OAUTH CODE: ////////////////////////////////////////
 
-app.listen(process.env.PORT || port, () => {
-    console.log("REST API is listening.");
+var spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
+var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+
+var spotify_redirect_uri = 'http://localhost:3000/auth/callback';
+
+var generateRandomString = function (length) {
+  var text = '';
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  for (var i = 0; i < length; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
+};
+
+app.get('/auth/login', (req, res) => {
+
+  var scope = "streaming user-read-email user-read-private";
+  var state = generateRandomString(16);
+
+  var auth_query_parameters = new URLSearchParams({
+    response_type: "code",
+    client_id: spotify_client_id,
+    scope: scope,
+    redirect_uri: spotify_redirect_uri,
+    state: state
+  })
+  console.log(spotify_client_id);
+  res.redirect('https://accounts.spotify.com/authorize/?' + auth_query_parameters.toString());
+})
+
+app.get('/auth/callback', (req, res) => {
+
+  var code = req.query.code;
+
+  var authOptions = {
+    url: 'https://accounts.spotify.com/api/token',
+    form: {
+      code: code,
+      redirect_uri: spotify_redirect_uri,
+      grant_type: 'authorization_code'
+    },
+    headers: {
+      'Authorization': 'Basic ' + (Buffer.from(spotify_client_id + ':' + spotify_client_secret).toString('base64')),
+      'Content-Type' : 'application/x-www-form-urlencoded'
+    },
+    json: true
+  };
+
+  request.post(authOptions, function(error, response, body) {
+    if (!error && response.statusCode === 200) {
+      access_token = body.access_token;
+      res.redirect('/');
+    }
   });
+
+})
+
+app.get('/auth/search/:id', (req, res) => {
+    songTitle = '';
+    const id = req.params['id']
+    console.log(access_token);
+    var searchOptions = {
+        url: `https://api.spotify.com/v1/search?q=${id}&type=track&limit=1`,
+        headers: {
+          'Accept' : 'application/json', 
+          'Content-Type' : 'application/json', 
+          'Authorization' :  `Bearer ${access_token}`
+        },
+      };
+    console.log('MADE IT HERE');
+
+    request.get(searchOptions, function(error, response, body) {
+        if (!error && response.statusCode === 200) {
+          //access_token = //body.access_token;
+          //console.log(' :) ' + body);
+          songTitle = body;
+          console.log("hello: " + songTitle);
+          res.redirect('/');
+        }
+
+      });
+})
+
+app.get('/auth/track', (req, res) => {
+    res.send(songTitle)
+  })
+  
+
+app.get('/auth/token', (req, res) => {
+  res.json({ access_token: access_token})
+})
+
+///////////////////////////////////////////////////////////////
+
+
 
 const playlists = {
     playlist_list : []
@@ -259,3 +368,7 @@ app.put('/playlists/:id', (req, res) => {
         res.status(204).end();
     }
 });
+
+app.listen(process.env.PORT || port, () => {
+    console.log("REST API is listening.");
+  });
