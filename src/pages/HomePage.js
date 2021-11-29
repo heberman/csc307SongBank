@@ -14,7 +14,6 @@ function HomePage() {
             const response = await axios.get('http://localhost:5000/songs?title=' + songTitle);
             resultLabel.innerHTML = response.data[0].title;
             playButton.style.display = "block";
-            window.location.replace('http://localhost:3000/songs?title=' + songTitle)
         }
         catch {
             resultLabel.innerHTML = "No result found...";
@@ -25,19 +24,19 @@ function HomePage() {
 
     return (
         <>
-        <div id="top"></div>
-        <h1><center>Song Search</center></h1>
-        <p><center>Type in the title of the song you want to listen to</center></p>
+            <div id="top"></div>
+            <h1><center>Song Search</center></h1>
+            <p><center>Type in the title of the song you want to listen to</center></p>
 
-        <div className="container">
-        <p>
-        </p>
-        </div>
-        <div align="center">
-            <SearchBar handleSubmit={searchByTitle} />
-            <Link to={"/songs?title=traitor"}><button style={{display: 'none'}} id="play-button" >Play</button></Link> 
-        </div>
-        <center><Link to={"/Playlists"}><button>Playlists</button></Link></center>
+            <div className="container">
+                <p>
+                </p>
+            </div>
+            <div align="center">
+                <SearchBar handleSubmit={searchByTitle} />
+                <Link to={"/traitor"}><button style={{display: 'none'}} id="play-button" >Play</button></Link>
+            </div>
+            <center><Link to={"/Playlists"}><button>Playlists</button></Link></center>
         </>
     );
 }

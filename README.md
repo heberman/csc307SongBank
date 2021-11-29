@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+<h1 align="center">Songbank Project</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![example workflow](https://github.com/heberman/csc307SongBank/actions/workflows/node.js.yml/badge.svg)
 
-## Available Scripts
+<p align="center"><img src="logo.png" alt="logo" width="400"/></p>
 
-In the project directory, you can run:
+Description: Our Songbank project is a music service that provides users with a straightforward yet fulfilling experience. Whether one wants to make a playlist with their favorite songs, or choose from a wide array of songs from all over the world, Songbank allows for all of it. Additionally, if more information on a song or artist is desired, our project has links to the corresponding webpage on Spotify, permitting seemless usage between platforms and giving a user the freedom to explore music to the fullest. Follow this guide for installation tips, a look into the process of making Songbank, or 
 
-### `npm start`
+<ins>Note:</ins> This project was created using [React](https://create-react-app.dev/docs/getting-started/) and [Node](https://nodejs.org/en/docs/guides/getting-started-guide/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br/><br/>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h3 align="center">Initial Prototype and Setup</h3>
 
-### `npm run build`
+Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-id=0%3A1) to see our initial design for Songbank. This design gave us a good idea of what we wanted our project to look like once completed. This made the decision process much easier along the way when choosing between different asthetics and visuals.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br/><br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<h3 align="center">How to Setup/Use Songbank</h3>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Clone Songbank repository [here](https://github.com/heberman/csc307SongBank.git)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install device-specific [Node](https://nodejs.org/en/download/) Version
+  
+3. npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+4. npm install _____:
+   * axios
+   * cors
+   * react-router-dom
+   * express
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+5. Run bankend with the ***node songbank-backend/backend.js --prod*** command
 
-## Learn More
+6. Run frontend with the ***npm start***
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+7. Website should launch in your default browser
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+<br/><br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+<h3 align="center">Diagrams</h3>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Component UML Diagram: <p align="center"><img src="component_uml.png" alt="component" width="400"/></p>
 
-### Making a Progressive Web App
+Class UML Diagram:<p align="center"><img src="class_diagram_uml.png" alt="class" width="200"/></p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Similar to our initial design for Songbank, these diagrams proved to be a great stepping stone in creating a good foundation to start the project. Although these 
+UML diagrams are not totally acurate when compared to the final version of Songbank, they are still helpful when trying to visualize the architecture behind it.
 
-### Advanced Configuration
+<br/><br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<h3 align="center">Code Coverage</h3>
 
-### Deployment
+Add Code Coverage Results once tests for our website are made.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<br/><br/>
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[GO TO TOP](#songbank-project)  
