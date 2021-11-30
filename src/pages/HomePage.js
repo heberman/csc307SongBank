@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import WebPlayback from '../WebPlayback';
 import Login from '../Login';
@@ -29,37 +29,24 @@ function HomePage() {
       // var resultLabel = document.getElementById("searchResult");
       // var playButton = document.getElementById("play-button");
       try {
-        console.log("waiting... for " + song.val);
-        window.location.replace("/auth/search/" + songTitle);
-        const result = await fetch("/auth/track");
-        const json = await result.json();
+        console.log("waiting... for " + songTitle);
+        const result = await axios.get("/auth/search/" + songTitle);
+        //const result = await fetch("/auth/search/" + songTitle);
+        //window.location.replace("/auth/search/" + songTitle);
+        //const result = await fetch("/auth/track");
+        //const json = await result.json();
   
-        console.log(json['tracks']['items'][0]['external_urls']['spotify']);
-        window.open(json['tracks']['items'][0]['external_urls']['spotify']);
+        console.log(result.data);
+        window.open((result.data)['tracks']['items'][0]['external_urls']['spotify']);
         
         console.log("finished");
       }
-      catch {
+      catch(error) {
         console.log("I'M A FAILURE");
+        console.log(error);
         //resultLabel.innerHTML = "No result found...";
       }
   }
-
-    // async function searchByTitle(song) {
-    //     const songTitle = song.val;
-    //     var resultLabel = document.getElementById("searchResult");
-    //     var playButton = document.getElementById("play-button");
-    //     try {
-    //         const response = await axios.get('http://localhost:5000/songs?title=' + songTitle);
-    //         resultLabel.innerHTML = response.data[0].title;
-    //         playButton.style.display = "block";
-    //     }
-    //     catch {
-    //         resultLabel.innerHTML = "No result found...";
-    //         playButton.style.display = "None";
-    //     }
-    //     return songTitle;
-    // }
 
     return (
         <><center>
