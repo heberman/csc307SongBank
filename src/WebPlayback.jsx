@@ -68,7 +68,7 @@ function WebPlayback(props) {
     }, []);
 
     return (
-        <>
+        <><center>
             <div className="container">
                 <div className="main-wrapper">
                     <img src={current_track.album.images[0].url} 
@@ -96,7 +96,7 @@ function WebPlayback(props) {
                         
                     </div>
                 </div>
-            </div>
+            </div></center>
          </>
     );
 }

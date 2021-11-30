@@ -62,16 +62,16 @@ function HomePage() {
     // }
 
     return (
-        <>
+        <><center>
             <div id="top"></div>
-            <h1><center>Song Search</center></h1>
+            <h1><center><img src="logo.png" alt="logo" height="200" width="500"/></center></h1>
             <p><center>Type in the title of the song you want to listen to</center></p>
 
             { (token === '') ? <Login/> : <WebPlayback token={token} /> }
             { (token === '') ? <div/> : <SearchBar handleSubmit={searchByTitle}/>  }
 
             <center><Link to={"/Playlists"}><button>Playlists</button></Link></center>
-        </>
+          </center></>
     );
 }
 export default HomePage;

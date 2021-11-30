@@ -22,7 +22,7 @@ function Form(props) {
 
     return (
         <form>
-            <label htmlFor="Search">Search</label>
+            <label htmlFor="Search"><b>Search</b></label>
             <input
                 type="text"
                 name="search"

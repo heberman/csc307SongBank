@@ -1,10 +1,11 @@
 import React from 'react';
+import "./Subpage.css"
 
 function TableHeader() {
     return (
         <thead>
-        <tr>
-            <th>Playlist Title</th>
+        <tr id="borders">
+            <th id="borders"><b>Playlist Title</b></th>
         </tr>
         </thead>
     );
@@ -15,11 +16,11 @@ function TableBody (props) {
         return (
             <tr key={index}>
                 <td>{row.title}</td>
-                <td>
-                    <button>Edit</button>
-                </td>
-                <td>
+                <td class="button_alignment">
                     <button onClick={() => props.removeCharacter(index)}>Delete</button>
+                </td>
+                <td class="button_alignment">
+                    <button>Edit</button>
                 </td>
             </tr>
         );

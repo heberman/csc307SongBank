@@ -67,6 +67,11 @@ function PlaylistPage() {
 
     return (
         <div className="container">
+            <div className="image_pos">
+                <img src="logo.png" alt="logo" height="70" align="top"/>
+            </div>
+            <br></br>
+            <br></br>
             <h1>Playlist Page</h1>
             <PlaylistTable characterData={characters} removeCharacter={removeOneCharacter}/>
             <NewPlaylistForm handleSubmit={updateList}/>
