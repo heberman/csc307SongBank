@@ -57,7 +57,8 @@ function HomePage() {
             <br></br>
 
             { (token === '') ? <Login/> : <WebPlayback token={token} /> }
-            { (token === '') ? <div/> : <Link to={"/Search"}><button>Search</button></Link>  }
+            { (token === '') ? <div/> : <Link to={"/Search"}><button type="button" 
+                class="button_playlist">Search</button></Link>  }
 
             <br></br>
             { (token === '') ? <div/> : <center><Link to={"/Playlists"}><input
