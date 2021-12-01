@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import "./pages/Subpage.css"
 //import './index.css';
 
 function Form(props) {
@@ -29,7 +30,7 @@ function Form(props) {
                 id="search"
                 value={query.val}
                 onChange={handleChange}/>
-            <input type="button" value="Submit" onClick={submitForm} />
+            <input type="button" class="button_playlist" value="Submit" onClick={submitForm} />
             <label id="searchResult"></label>
             {/* <Link to="/play"><button style={{display: 'none'}} id="play-button">Play</button></Link> */}
         </form>

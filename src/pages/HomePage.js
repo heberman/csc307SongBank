@@ -51,13 +51,20 @@ function HomePage() {
     return (
         <><center>
             <div id="top"></div>
+
+            <br></br>
             <h1><center><img src="logo.png" alt="logo" height="200" width="500"/></center></h1>
-            <p><center>Type in the title of the song you want to listen to</center></p>
+            <br></br>
 
             { (token === '') ? <Login/> : <WebPlayback token={token} /> }
             { (token === '') ? <div/> : <SearchBar handleSubmit={searchByTitle}/>  }
 
-            <center><Link to={"/Playlists"}><button>Playlists</button></Link></center>
+            <br></br>
+            { (token === '') ? <div/> : <center><Link to={"/Playlists"}><input type="button"
+            value="Playlists"
+            class="button_playlist"
+            ></input></Link></center>  }
+            
         </center></>
     );
 }

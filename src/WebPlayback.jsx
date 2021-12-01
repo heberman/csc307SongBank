@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import "./pages/Subpage.css"
 
 const track = {
     name: "",
@@ -82,7 +83,7 @@ function WebPlayback(props) {
                         <div className="now-playing__artist">{
                                       current_track.artists[0].name
                                       }</div>
-                        <button className="btn-spotify" onClick={() => { player.previousTrack() }} >
+                        <button class="btn-spotify" onClick={() => { player.previousTrack() }} >
                             &lt;&lt;
                         </button>
 
