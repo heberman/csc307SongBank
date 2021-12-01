@@ -38,7 +38,7 @@ function HomePage() {
   
         console.log(result.data);
         window.open((result.data)['tracks']['items'][0]['external_urls']['spotify']);
-        window.location.replace("/auth/search/" + songTitle);
+        //window.location.replace("/auth/search/" + songTitle);
         console.log("finished");
       }
       catch(error) {

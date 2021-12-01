@@ -10,6 +10,8 @@ import SongPage from './pages/SongPage';
 
 import PlaylistPage from './pages/PlaylistPage';
 
+import EditPlaylist from './pages/EditPlaylist';
+
 function MyApp() {
 
     return (
@@ -17,8 +19,9 @@ function MyApp() {
         <BrowserRouter>
         <switch>
             <Route exact path='/' component={HomePage} />
-            <Route path='/Playlists' component={PlaylistPage}/>
-            <Route path='/Songs' component={SongPage} />
+            <Route path='/Playlists/' component={PlaylistPage}/>
+            <Route path='/Playlists/:id' component={EditPlaylist}/>
+            <Route path='/Songs/:id' component={SongPage} />
         </switch>
         </BrowserRouter>
         {/* <div>
