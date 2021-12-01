@@ -53,7 +53,7 @@ function SearchPage () {
     return (
         <div className="container">
             <div className="image_pos">
-                <img src="logo.png" alt="logo" height="70" align="top"/>
+                <a href="/"><img src="logo.png" alt="logo" height="70" align="top"/></a>
             </div>
             <br></br>
             <br></br>
