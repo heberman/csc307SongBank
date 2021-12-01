@@ -67,7 +67,7 @@ function PlaylistPage() {
     return (
         <div className="container">
             <div className="image_pos">
-                <a href="/"><img src="logo.png" alt="logo" height="70" align="top"/></a>
+                <img src="logo.png" alt="logo" height="70" align="top"/>
             </div>
             <br></br>
             <br></br>

@@ -57,14 +57,14 @@ function HomePage() {
             <br></br>
 
             { (token === '') ? <Login/> : <WebPlayback token={token} /> }
-            { (token === '') ? <div/> : <SearchBar handleSubmit={searchByTitle}/>  }
+            { (token === '') ? <div/> : <Link to={"/Search"}><button>Search</button></Link>  }
 
             <br></br>
-            { (token === '') ? <div/> : <center><Link to={"/Playlists"}><input type="button"
-            value="Playlists"
-            class="button_playlist"
-            ></input></Link></center>  }
-            
+            { (token === '') ? <div/> : <center><Link to={"/Playlists"}><input
+                type="button"
+                value="Playlists"
+                class="button_playlist"></input></Link></center>  }
+
         </center></>
     );
 }

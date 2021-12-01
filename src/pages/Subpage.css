@@ -35,11 +35,11 @@
     cursor: pointer;
     text-decoration: none;
     line-height: 1;
-  }
+}
 
-  .button_playlist [type=submit]:hover, [type=reset]:hover, [type=button]:hover {
+.button_playlist [type=submit]:hover, [type=reset]:hover, [type=button]:hover {
     border: 1px solid #ffffff;
     background: #8d8d8d;
     color: #ffffff;
     text-decoration: none;
-  }
+}
