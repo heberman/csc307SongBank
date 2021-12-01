@@ -43,3 +43,10 @@
     color: #ffffff;
     text-decoration: none;
   }
+
+  .button_playlist, [type=submit]:focus, [type=reset]:hover, [type=submit]:active, [type=reset]:focus, [type=reset]:active, [type=button]:focus, [type=button]:active {
+    border: 1px solid #000000;
+    background: #585858;
+    color: #ffffff;
+    text-decoration: none;
+  }

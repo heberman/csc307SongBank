@@ -50,7 +50,7 @@ function HomePage() {
 
     return (
         <><center>
-            <div id="top"></div>
+            <div id="top"/>
 
             <br></br>
             <h1><center><img src="logo.png" alt="logo" height="200" width="500"/></center></h1>
