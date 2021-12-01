@@ -1,0 +1,13 @@
+#borders{
+    border-bottom: solid 2px #000;
+}
+
+.button_alignment{
+    float: right
+}
+
+.image_pos{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
