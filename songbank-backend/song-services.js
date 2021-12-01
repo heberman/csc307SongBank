@@ -8,10 +8,12 @@ dotenv.config();
 let conn;
 
 function setConnection(newConn) {
+    // don't need to test!
     return (conn = newConn);
 }
 
 function getConnection() {
+    // don't need to test!
     if (!conn) {
         if (process.argv.includes("--prod")) {
             conn = mongoose.createConnection(

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route} from 'react-router-dom';
 
 // We will create these two pages in a moment
 
@@ -10,7 +10,7 @@ import SongPage from './pages/SongPage';
 
 import PlaylistPage from './pages/PlaylistPage';
 
-import EditPlaylist from './pages/EditPlaylist';
+import IndivPlaylistPage from './pages/IndivPlaylistPage';
 
 function MyApp() {
 
@@ -19,9 +19,9 @@ function MyApp() {
         <BrowserRouter>
         <switch>
             <Route exact path='/' component={HomePage} />
-            <Route path='/Playlists/' component={PlaylistPage}/>
-            <Route path='/Playlists/:id' component={EditPlaylist}/>
-            <Route path='/Songs/:id' component={SongPage} />
+            <Route exact path='/Playlists' component={PlaylistPage}/>
+            <Route exact path='/Songs' component={SongPage} />
+            <Route path='/Playlists/:playlistName' children={<IndivPlaylistPage />} />
         </switch>
         </BrowserRouter>
         {/* <div>

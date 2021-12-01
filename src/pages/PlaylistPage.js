@@ -26,7 +26,6 @@ function PlaylistPage() {
     }
 
     function updateList(playlist) {
-        console.log(characters);
         makePostCall(playlist).then( result => {
             if (result && result.status === 201) {
                 setCharacters([...characters, playlist]);

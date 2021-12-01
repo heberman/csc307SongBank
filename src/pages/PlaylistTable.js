@@ -1,6 +1,6 @@
 import React from 'react';
-import "./Subpage.css"
 import { Link } from 'react-router-dom';
+import "./Subpage.css"
 
 function TableHeader() {
     return (
@@ -21,9 +21,7 @@ function TableBody (props) {
                     <button onClick={() => props.removeCharacter(index)}>Delete</button>
                 </td>
                 <td class="button_alignment">
-                    {/* <button href={'/playlists/'+ row.title} >Edit</button> */}
-                    <button onClick={window.location.replace("/Playlists/" + row.title)}>Edit</button>
-                    {/* <Link to={"/Playlists/"+row.title}><button>Edit</button></Link> */}
+                    <Link to={'/Playlists/' + row.title}><button>Edit</button></Link>
                 </td>
             </tr>
         );
