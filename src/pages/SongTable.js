@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import "./Subpage.css"
 
 function TableHeader() {
@@ -7,21 +6,23 @@ function TableHeader() {
         <thead>
         <tr id="borders">
             <th id="borders"><b>Playlist Title</b></th>
+            <th id="borders"><b>Artist</b></th>
+            <th id="borders"><b>Album</b></th>
+            <th id="borders"><b>Remove Song</b></th>
         </tr>
         </thead>
     );
 }
 
 function TableBody (props) {
-    const rows = props.characterData.map((row, index) => {
+    const rows = props.characterData["songs"].map((row, index) => {
         return (
             <tr key={index}>
-                <td>{row.title}</td>
+                <td>{row.name}</td>
+                <td>{row.artists[0].name}</td>
+                <td>{row.album.name}</td>
                 <td class="button_alignment">
-                    <button onClick={() => props.removeCharacter(index)}>Delete</button>
-                </td>
-                <td class="button_alignment">
-                    <Link to={'/Playlists/' + row.title}><button>Edit</button></Link>
+                    <button onClick={() => props.removeCharacter(index)}>Remove</button>
                 </td>
             </tr>
         );
@@ -33,7 +34,7 @@ function TableBody (props) {
     );
 }
 
-function PlaylistTable(props) {
+function SongTable(props) {
     return (
         <table>
             <TableHeader />
@@ -42,4 +43,4 @@ function PlaylistTable(props) {
     );
 }
 
-export default PlaylistTable;
+export default SongTable;

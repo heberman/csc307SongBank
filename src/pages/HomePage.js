@@ -11,42 +11,42 @@ function HomePage() {
     const [token, setToken] = useState('');
 
     useEffect(() => {
-  
-      async function getToken() {
-        const response = await fetch('/auth/token');
-        const json = await response.json();
-        setToken(json.access_token);
-      }
-  
-      getToken();
-  
+
+        async function getToken() {
+            const response = await fetch('/auth/token');
+            const json = await response.json();
+            setToken(json.access_token);
+        }
+
+        getToken();
+
     }, []);
-  
-  
+
+
     async function searchByTitle(song) {
-      console.log("SEARCH BY TITLE");
-      const songTitle = song.val;
-      // var resultLabel = document.getElementById("searchResult");
-      // var playButton = document.getElementById("play-button");
-      try {
-        console.log("waiting... for " + songTitle);
-        const result = await axios.get("/auth/search/" + songTitle);
-        //const result = await fetch("/auth/search/" + songTitle);
-        //window.location.replace("/auth/search/" + songTitle);
-        //const result = await fetch("/auth/track");
-        //const json = await result.json();
-  
-        console.log(result.data);
-        window.open((result.data)['tracks']['items'][0]['external_urls']['spotify']);
-        
-        console.log("finished");
-      }
-      catch(error) {
-        console.log("I'M A FAILURE");
-        console.log(error);
-        //resultLabel.innerHTML = "No result found...";
-      }
-  }
+        console.log("SEARCH BY TITLE");
+        const songTitle = song.val;
+        // var resultLabel = document.getElementById("searchResult");
+        // var playButton = document.getElementById("play-button");
+        try {
+            console.log("waiting... for " + songTitle);
+            const result = await axios.get("/auth/search/" + songTitle);
+            //const result = await fetch("/auth/search/" + songTitle);
+            //window.location.replace("/auth/search/" + songTitle);
+            //const result = await fetch("/auth/track");
+            //const json = await result.json();
+
+            console.log(result.data);
+            window.open((result.data)['tracks']['items'][0]['external_urls']['spotify']);
+
+            console.log("finished");
+        }
+        catch(error) {
+            console.log("I'M A FAILURE");
+            console.log(error);
+            //resultLabel.innerHTML = "No result found...";
+        }
+    }
 
     return (
         <><center>
@@ -58,7 +58,7 @@ function HomePage() {
             { (token === '') ? <div/> : <SearchBar handleSubmit={searchByTitle}/>  }
 
             <center><Link to={"/Playlists"}><button>Playlists</button></Link></center>
-          </center></>
+        </center></>
     );
 }
 export default HomePage;
