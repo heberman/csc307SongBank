@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import "./Subpage.css"
 import PlaylistTable from './PlaylistTable';
 import NewPlaylistForm from './NewPlaylistForm';
 

@@ -22,7 +22,8 @@ function TableBody (props) {
                 <td>{row.artists[0].name}</td>
                 <td>{row.album.name}</td>
                 <td class="button_alignment">
-                    <button onClick={() => props.removeCharacter(index)}>Remove</button>
+                    <button type="button"
+                    class="button_playlist" onClick={() => props.removeCharacter(index)}>Remove</button>
                 </td>
             </tr>
         );

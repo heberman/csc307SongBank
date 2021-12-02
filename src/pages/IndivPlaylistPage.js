@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import SongTable from './SongTable'
 import AddSongForm from './AddSongForm'
+import logo from "./logo.png"
 
 function IndivPlaylistPage () {
     let { playlistName } = useParams();
@@ -109,8 +110,8 @@ function IndivPlaylistPage () {
 
     return (
         <div className="container">
-            <div className="image_pos">
-                <img src="logo.png" alt="logo" height="70" align="top"/>
+            <div className="image_pos"><a href="/">
+                <img src={logo} alt="logo" height="70" align="top"/></a>
             </div>
             <br></br>
             <br></br>

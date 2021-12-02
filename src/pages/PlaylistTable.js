@@ -17,11 +17,11 @@ function TableBody (props) {
         return (
             <tr key={index}>
                 <td>{row.title}</td>
-                <td class="button_alignment">
-                    <button onClick={() => props.removeCharacter(index)}>Delete</button>
+                <td id="button_alignment">
+                    <button type="button" class="button_playlist" onClick={() => props.removeCharacter(index)}>Delete</button>
                 </td>
-                <td class="button_alignment">
-                    <Link to={'/Playlists/' + row.title}><button>Edit</button></Link>
+                <td id="button_alignment">
+                    <Link to={'/Playlists/' + row.title}><button type="button" class="button_playlist">Edit</button></Link>
                 </td>
             </tr>
         );
