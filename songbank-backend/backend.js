@@ -115,6 +115,36 @@ app.get('/auth/search/:id', (req, res) => {
     });
 })
 
+app.get('/auth/search/:id/:artist', (req, res) => {
+    //songTitle = '';
+    const id = req.params['id'];
+    const artist = req.params['artist'];
+    console.log(access_token);
+    console.log(id);
+    var searchOptions = {
+        url: `https://api.spotify.com/v1/search?q=${id}+${artist}&type=track%2Cartist&limit=5`,
+        headers: {
+            'Accept' : 'application/json',
+            'Content-Type' : 'application/json',
+            'Authorization' :  `Bearer ${access_token}`
+        },
+    };
+    console.log('MADE IT HERE');
+
+    request.get(searchOptions, function(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            //access_token = //body.access_token;
+            //console.log(' :) ' + body);
+            songTitle = body;
+            res.send(songTitle);
+            console.log("hello: " + songTitle);
+            //res.redirect('/');
+        }
+
+    });
+})
+
+
 app.get('/auth/track', (req, res) => {
     res.send(songTitle)
 })

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import "./pages/Subpage.css"
-//import './index.css';
+import "./pages/Subpage.css";
+//import './index.css'
 
 function Form(props) {
     const [query, setQuery] = useState(

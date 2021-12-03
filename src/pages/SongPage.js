@@ -15,7 +15,7 @@ function SongPage() {
     async function getResults() {
         const songTitle = title;
         try {
-            const result = await axios.get("/auth/search/" + songTitle);
+            const result = await axios.get("/auth/search/" + songTitle + '/' + artist);
             if (result !== undefined) {
                 const searchImage = (result.data)['tracks']['items'][0]['album']['images'][0]['url'];
                 const searchPlayer = (result.data)['tracks']['items'][0]['preview_url'];
