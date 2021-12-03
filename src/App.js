@@ -23,7 +23,7 @@ function MyApp() {
             <Route exact path='/' component={HomePage} />
             <Route exact path='/Search' component={SearchPage} />
             <Route exact path='/Playlists' component={PlaylistPage}/>
-            <Route exact path='/Songs' component={SongPage} />
+            <Route exact path='/Songs/:title/:artist/:album' component={SongPage} />
             <Route path='/Playlists/:playlistName' children={<IndivPlaylistPage />} />
         </switch>
         </BrowserRouter>

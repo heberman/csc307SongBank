@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./Subpage.css"
 
 function TableHeader() {
@@ -24,6 +25,10 @@ function TableBody (props) {
                 <td class="button_alignment">
                     <button type="button"
                     class="button_playlist" onClick={() => props.removeCharacter(index)}>Remove</button>
+                </td>
+                <td class="button_alignment">
+                    <Link to={"/Songs/"+row.name+"/"+row.artists[0].name+"/"+row.album.name}><button type="button"
+                    class="button_playlist">info</button></Link>
                 </td>
             </tr>
         );
