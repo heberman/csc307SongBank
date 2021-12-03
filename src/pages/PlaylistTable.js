@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "./Subpage.css"
+import "./Subpage.css";
 
 function TableHeader() {
     return (

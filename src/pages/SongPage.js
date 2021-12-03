@@ -2,16 +2,16 @@ import React from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-function SongPage() {
+function SongPage(songInfo) {
 
-    let { id } = useParams();
-
+    let { songName } = useParams();
 
     return (
     <>
-    <h1>{id}</h1>
+    <h1>{songName}</h1>
     <p>Press play to play selected song</p>
-    <p>Information about song goes here...</p>
+    <p>{songInfo.songInfo}</p>
+    
     </>
     );
 }
