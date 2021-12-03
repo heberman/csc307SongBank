@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import WebPlayback from '../WebPlayback';
@@ -8,10 +8,8 @@ import './HomePage.css';
 
 function HomePage() {
 
-    const [title, setTitle] = useState('');
     const [token, setToken] = useState('');
-    const [songInfo, setSongInfo] = useState();
-   
+
     useEffect(() => {
 
         async function getToken() {
@@ -39,9 +37,8 @@ function HomePage() {
             //const json = await result.json();
 
             console.log(result.data);
-           // window.open((result.data)['tracks']['items'][0]['external_urls']['spotify']);
-            //window.location.replace("/SongPage/" + (result.data)['tracks']['items'][0]['external_urls']['spotify']);
-            setTitle((result.data)['tracks']['items'][0]['name']);
+            window.open((result.data)['tracks']['items'][0]['external_urls']['spotify']);
+
             console.log("finished");
         }
         catch(error) {
@@ -53,15 +50,22 @@ function HomePage() {
 
     return (
         <><center>
-            <div id="top"></div>
+            <div id="top"/>
+
+            <br></br>
             <h1><center><img src="logo.png" alt="logo" height="200" width="500"/></center></h1>
-            <p><center>Type in the title of the song you want to listen to</center></p>
+            <br></br>
 
             { (token === '') ? <Login/> : <WebPlayback token={token} /> }
-            { (token === '') ? <div/> : <SearchBar handleSubmit={searchByTitle}/>}
-            { (title === '') ? <div/> : <button><Link to={'pathname': 'Songs/' + title, data: songInfo} > {title}</Link></button>}
+            { (token === '') ? <div/> : <Link to={"/Search"}><button type="button" 
+                class="button_playlist">Search</button></Link>  }
 
-            <center><Link to={"/Playlists"}><button>Playlists</button></Link></center>
+            <br></br>
+            { (token === '') ? <div/> : <center><Link to={"/Playlists"}><input
+                type="button"
+                value="Playlists"
+                class="button_playlist"></input></Link></center>  }
+
         </center></>
     );
 }

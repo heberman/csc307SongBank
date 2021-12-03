@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import "./Subpage.css"
 import PlaylistTable from './PlaylistTable';
 import NewPlaylistForm from './NewPlaylistForm';
 
@@ -67,7 +68,7 @@ function PlaylistPage() {
     return (
         <div className="container">
             <div className="image_pos">
-                <img src="logo.png" alt="logo" height="70" align="top"/>
+                <a href="/"><img src="logo.png" alt="logo" height="70" align="top"/></a>
             </div>
             <br></br>
             <br></br>

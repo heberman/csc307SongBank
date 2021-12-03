@@ -1,8 +1,8 @@
 #borders{
-    border-bottom: solid 2px #000;
+    border-bottom: solid 1px #000;
 }
 
-.button_alignment{
+#button_alignment{
     float: right
 }
 
@@ -10,4 +10,43 @@
     position: absolute;
     top: 0px;
     left: 0px;
+}
+
+.font_one{
+    font-family: "Monaco", Monospace, serif;
+}
+
+.button_playlist [type=submit], [type=reset], [type=button] {
+    -webkit-appearance: none;
+    display: inline-block;
+    margin: auto;
+    margin-top: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background: #585858;
+    color: #ffffff;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    text-transform: none;
+    padding: 0.75rem 1.25rem;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.button_playlist [type=submit]:hover, [type=reset]:hover, [type=button]:hover {
+    border: 1px solid #ffffff;
+    background: #8d8d8d;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+.button_playlist, [type=submit]:focus, [type=reset]:hover, [type=submit]:active, [type=reset]:focus, [type=reset]:active, [type=button]:focus, [type=button]:active{
+    border: 1px solid #000000;
+    background: #585858;
+    color: #ffffff;
+    text-decoration: none;
 }

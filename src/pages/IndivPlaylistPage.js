@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import SongTable from './SongTable'
-import SearchBar from "../SearchBar";
+import AddSongForm from './AddSongForm'
+import logo from "./logo.png"
 
 function IndivPlaylistPage () {
     let { playlistName } = useParams();
@@ -12,8 +13,6 @@ function IndivPlaylistPage () {
         "songs": [],
         "_id": ''
     });
-
-    // const [characters, setCharacters] = useState([]);
 
     async function removeOneCharacter (index) {
         try {
@@ -40,23 +39,23 @@ function IndivPlaylistPage () {
         }
     }
 
-    async function findAndAddSong(song) {
-        const songTitle = song.val;
-        try {
-            const result = await axios.get("/auth/search/" + songTitle);
-            if (result !== undefined) {
-                const songToAdd = result.data["tracks"]["items"][0];
-                updateList(songToAdd);
-            }
-            else {
-                console.log("Not found.");
-            }
-        }
-        catch(error) {
-            console.log("I'M A FAILURE");
-            console.log(error);
-        }
-    }
+    // async function findAndAddSong(song) {
+    //     const songTitle = song.val;
+    //     try {
+    //         const result = await axios.get("/auth/search/" + songTitle);
+    //         if (result !== undefined) {
+    //             const songToAdd = result.data["tracks"]["items"][0];
+    //             updateList(songToAdd);
+    //         }
+    //         else {
+    //             console.log("Not found.");
+    //         }
+    //     }
+    //     catch(error) {
+    //         console.log("I'M A FAILURE");
+    //         console.log(error);
+    //     }
+    // }
 
     function updateList(song) {
         makePostCall(song).then( result => {
@@ -66,9 +65,6 @@ function IndivPlaylistPage () {
                     "songs": playlist["songs"],
                     "_id": playlist['_id']
                 });
-                // let newPlaylist = playlist;
-                // newPlaylist["songs"] = [...newPlaylist["songs"], song];
-                // setPlaylist(newPlaylist);
             }
         });
     }
@@ -114,14 +110,15 @@ function IndivPlaylistPage () {
 
     return (
         <div className="container">
-            <div className="image_pos">
-                <img src="logo.png" alt="logo" height="70" align="top"/>
+            <div className="image_pos"><a href="/">
+                <img src={logo} alt="logo" height="70" align="top"/></a>
             </div>
             <br></br>
             <br></br>
             <PlaylistHeader />
             <SongTable characterData={playlist} removeCharacter={removeOneCharacter}/>
-            <SearchBar handleSubmit={findAndAddSong}/>
+            <AddSongForm handleAdd={updateList}/>
+            {/*<SearchBar handleSubmit={findAndAddSong}/>*/}
         </div>
     );
 }
