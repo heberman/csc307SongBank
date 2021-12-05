@@ -28,17 +28,11 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
   
 3. npm install
 
-4. npm install _____:
-   * axios
-   * cors
-   * react-router-dom
-   * express
+4. Run bankend with the ***node songbank-backend/backend.js --prod*** command
 
-5. Run bankend with the ***node songbank-backend/backend.js --prod*** command
+5. Run frontend with the ***npm start***
 
-6. Run frontend with the ***npm start***
-
-7. Website should launch in your default browser
+6. Website should launch in your default browser
 
 
 <br/><br/>
@@ -55,10 +49,35 @@ UML diagrams are not totally acurate when compared to the final version of Songb
 
 <br/><br/>
 
+
 <h3 align="center">Code Coverage</h3>
 
 Add Code Coverage Results once tests for our website are made.
 
 <br/><br/>
+
+
+<h3 align="center">Code Formatter</h3>
+
+'''npm install prettier --save-dev'''
+
+
+
+Create a .prettierignore file to let the editor know which files NOT to style check.
+
+Add these lines in .prettierignore
+
+# Ignore artifacts:
+build
+coverage
+To format all files, run
+
+npx prettier --write .
+
+Further instructions for installation can be found here: https://prettier.io/docs/en/install.html
+
+Style rules here: https://prettier.io/docs/en/options.html
+
+We recommend integrating Prettier into your chosen code editor (we recommend VSCode). Instructions on how to do so can be found here: https://prettier.io/docs/en/editors.html
 
 [GO TO TOP](#songbank-project)  
