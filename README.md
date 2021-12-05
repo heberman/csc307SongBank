@@ -25,14 +25,23 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 1. Clone Songbank repository [here](https://github.com/heberman/csc307SongBank.git)
 
 2. Install device-specific [Node](https://nodejs.org/en/download/) Version
+
+3. Go to the spotify developer dashboard, login, and create a new [application](https://developer.spotify.com/dashboard/).
+
+4. Create a .env file (in the root folder of the project) and include the variables listed below:
+
+```
+SPOTIFY_CLIENT_ID='YOUR_CLIENT_ID'
+SPOTIFY_CLIENT_SECRET='YOUR_CLIENT_SECRET'
+```
   
-3. npm install
+5. Run ```npm install```
 
-4. Run bankend with the ***node songbank-backend/backend.js --prod*** command
+6. Run bankend with the ```node songbank-backend/backend.js --prod``` command
 
-5. Run frontend with the ***npm start***
+7. Run frontend with the ```npm start```
 
-6. Website should launch in your default browser
+8. Website should launch in your default browser
 
 
 <br/><br/>
