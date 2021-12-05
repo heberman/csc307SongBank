@@ -68,7 +68,8 @@ project, run:
 *NOTE*: Not all files have to be run through prettier for style checking. Create a ```.prettierignore``` to convey which parts of a project you want to be ignored
 and add these few lines:
 
-```# Ignore artifacts:
+```
+# Ignore artifacts:
 build
 coverage
 ```
