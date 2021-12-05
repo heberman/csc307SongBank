@@ -59,7 +59,7 @@ Add Code Coverage Results once tests for our website are made.
 
 <h3 align="center">Code Formatter</h3>
 
-'''npm install prettier --save-dev'''
+```npm install prettier --save-dev```
 
 
 
