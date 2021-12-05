@@ -59,25 +59,27 @@ Add Code Coverage Results once tests for our website are made.
 
 <h3 align="center">Code Formatter</h3>
 
+For our Songbank project, we decided to use the code formatter Prettier. Prettier is a way to help a project keep a consistent "style" to their code. This allows
+for all collaborators to understand and edit files easily without the confusion of multiple different coding styles and formats. To install Prettier for this 
+project, run:
+
 ```npm install prettier --save-dev```
 
+*NOTE*: Not all files have to be run through prettier for style checking. Create a ```.prettierignore``` to convey which parts of a project you want to be ignored
+and add these few lines:
 
-
-Create a .prettierignore file to let the editor know which files NOT to style check.
-
-Add these lines in .prettierignore
-
-# Ignore artifacts:
+```# Ignore artifacts:
 build
 coverage
-To format all files, run
+```
 
-npx prettier --write .
+To run all files through prettier, use: ```npx prettier --write .```
 
-Further instructions for installation can be found here: https://prettier.io/docs/en/install.html
+Further instructions for installation can be found [here](https://prettier.io/docs/en/install.html), along with additional style 
+rules [here](https://prettier.io/docs/en/options.html)
 
-Style rules here: https://prettier.io/docs/en/options.html
-
-We recommend integrating Prettier into your chosen code editor (we recommend VSCode). Instructions on how to do so can be found here: https://prettier.io/docs/en/editors.html
+Although Prettier is not required, Prettier was used throughout our project to ensure clarity and simplicity in our code. Additionally, using prettier alongside
+the code editor VSCode was extremely easy to use and very efficient. To find how to use Prettier with any editor, visit:
+https://prettier.io/docs/en/editors.html
 
 [GO TO TOP](#songbank-project)  
