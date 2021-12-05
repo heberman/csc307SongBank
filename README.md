@@ -22,7 +22,7 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 
 <h3 align="center">How to Setup/Use Songbank</h3>
 
-1. Clone Songbank repository [here](https://github.com/heberman/csc307SongBank.git)
+1. Clone Songbank [repository](https://github.com/heberman/csc307SongBank.git)
 
 2. Install device-specific [Node](https://nodejs.org/en/download/) Version
 
@@ -31,6 +31,10 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 4. Create a .env file (in the root folder of the project) and include the variables listed below:
 
 ```
+MONGO_USER=bcdasilv
+MONGO_PWD=bcdasilv
+MONGO_DB=songbank
+
 SPOTIFY_CLIENT_ID='YOUR_CLIENT_ID'
 SPOTIFY_CLIENT_SECRET='YOUR_CLIENT_SECRET'
 ```
