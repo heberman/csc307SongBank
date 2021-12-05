@@ -41,7 +41,8 @@ SPOTIFY_CLIENT_SECRET='YOUR_CLIENT_SECRET'
   
 5. Run ```npm install```
 
-6. Run bankend with the ```node songbank-backend/backend.js --prod``` command
+6. Run bankend with the ```node songbank-backend/backend.js --prod``` command. The ```--prod``` flag stores playlist in the MONGODB Cloud. If you want to store
+playlists locally, remove the prod flag.
 
 7. Run frontend with the ```npm start```
 
@@ -95,5 +96,7 @@ rules [here](https://prettier.io/docs/en/options.html)
 Although Prettier is not required, Prettier was used throughout our project to ensure clarity and simplicity in our code. Additionally, using prettier alongside
 the code editor VSCode was extremely easy to use and very efficient. To find how to use Prettier with any editor, visit:
 https://prettier.io/docs/en/editors.html
+
+<br></br>
 
 [GO TO TOP](#songbank-project)  
