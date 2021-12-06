@@ -54,9 +54,9 @@ playlists locally, remove the prod flag.
 
 <h3 align="center">Diagrams</h3>
 
-Component UML Diagram: <p align="center"><img src="component_uml.png" alt="component" width="400"/></p>
+Component UML Diagram: <p align="center"><img src="./public/component_uml.png" alt="component" width="400"/></p>
 
-Class UML Diagram:<p align="center"><img src="class_diagram_uml.png" alt="class" width="200"/></p>
+Class UML Diagram:<p align="center"><img src="./public/class_diagram_uml.png" alt="class" width="200"/></p>
 
 Similar to our initial design for Songbank, these diagrams proved to be a great stepping stone in creating a good foundation to start the project. Although these 
 UML diagrams are not totally acurate when compared to the final version of Songbank, they are still helpful when trying to visualize the architecture behind it.
