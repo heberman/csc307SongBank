@@ -6,6 +6,7 @@ import AddSongForm from './AddSongForm'
 import logo from "./logo.png"
 
 function IndivPlaylistPage () {
+    
     let { playlistName } = useParams();
 
     const [playlist, setPlaylist] = useState({

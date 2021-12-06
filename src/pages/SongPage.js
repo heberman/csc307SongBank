@@ -6,7 +6,6 @@ import SmallPlaylistTable from "./SmallPlaylistTable";
 
 
 function SongPage() {
-
     let { title } = useParams();
     let { artist } = useParams();
     let { album } = useParams();
