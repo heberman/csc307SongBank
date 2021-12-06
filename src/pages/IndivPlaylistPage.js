@@ -6,7 +6,7 @@ import AddSongForm from './AddSongForm'
 import logo from "./logo.png"
 
 function IndivPlaylistPage () {
-    
+
     let { playlistName } = useParams();
 
     const [playlist, setPlaylist] = useState({
@@ -40,24 +40,6 @@ function IndivPlaylistPage () {
         }
     }
 
-    // async function findAndAddSong(song) {
-    //     const songTitle = song.val;
-    //     try {
-    //         const result = await axios.get("/auth/search/" + songTitle);
-    //         if (result !== undefined) {
-    //             const songToAdd = result.data["tracks"]["items"][0];
-    //             updateList(songToAdd);
-    //         }
-    //         else {
-    //             console.log("Not found.");
-    //         }
-    //     }
-    //     catch(error) {
-    //         console.log("I'M A FAILURE");
-    //         console.log(error);
-    //     }
-    // }
-
     function updateList(song) {
         makePostCall(song).then( result => {
             if (result && result.status === 204) {
@@ -85,24 +67,24 @@ function IndivPlaylistPage () {
         }
     }
 
-    async function fetchAll(){
-        try {
-            const response = await axios.get('http://localhost:5000/playlists?title=' + playlistName);
-            return response.data[0];
-        }
-        catch (error){
-            //We're not handling errors. Just logging into the console.
-            console.log(error);
-            return false;
-        }
-    }
-
     useEffect(() => {
+        async function fetchAll(){
+            try {
+                const response = await axios.get('http://localhost:5000/playlists?title=' + playlistName);
+                return response.data[0];
+            }
+            catch (error){
+                //We're not handling errors. Just logging into the console.
+                console.log(error);
+                return false;
+            }
+        }
+
         fetchAll().then( result => {
             if (result)
                 setPlaylist(result);
         });
-    }, [] );
+    }, [playlistName] );
 
 
     const PlaylistHeader = () => {

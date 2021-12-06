@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 
 function AddSongForm(props) {
-    
+
     const [results, setResults] = useState([]);
 
     const [query, setQuery] = useState(
@@ -82,19 +82,6 @@ function AddSongForm(props) {
             </tbody>
         );
     }
-
-    function ResultsHeader() {
-        return (
-            <thead>
-            <tr id="borders">
-                <th id="borders"><b>Song Title</b></th>
-                <th id="borders"><b>Artist</b></th>
-                <th id="borders"><b>Album</b></th>
-            </tr>
-            </thead>
-        );
-    }
-
 
     return (
         <form>
