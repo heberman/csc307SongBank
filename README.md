@@ -2,7 +2,7 @@
 
 ![example workflow](https://github.com/heberman/csc307SongBank/actions/workflows/node.js.yml/badge.svg)
 
-<p align="center"><img src="logo.png" alt="logo" width="400"/></p>
+<p align="center"><img src="./public/logo.png" alt="logo" width="400"/></p>
 
 Description: Our Songbank project is a music service that provides users with a straightforward yet fulfilling experience. Whether one wants to make a playlist with their favorite songs, or choose from a wide array of songs from all over the world, Songbank allows for all of it. Additionally, if more information on a song or artist is desired, our project has links to the corresponding webpage on Spotify, permitting seemless usage between platforms and giving a user the freedom to explore music to the fullest. Follow this guide for installation tips, a look into the process of making Songbank, or 
 
@@ -22,23 +22,31 @@ Click [here](https://www.figma.com/file/gANEf0D6kaiE56LzjMf83T/Music-Bank?node-i
 
 <h3 align="center">How to Setup/Use Songbank</h3>
 
-1. Clone Songbank repository [here](https://github.com/heberman/csc307SongBank.git)
+1. Clone Songbank [repository](https://github.com/heberman/csc307SongBank.git)
 
 2. Install device-specific [Node](https://nodejs.org/en/download/) Version
+
+3. Go to the spotify developer dashboard, login, and create a new [application](https://developer.spotify.com/dashboard/).
+
+4. Create a .env file (in the root folder of the project) and include the variables listed below:
+
+```
+MONGO_USER=bcdasilv
+MONGO_PWD=bcdasilv
+MONGO_DB=songbank
+
+SPOTIFY_CLIENT_ID='YOUR_CLIENT_ID'
+SPOTIFY_CLIENT_SECRET='YOUR_CLIENT_SECRET'
+```
   
-3. npm install
+5. Run ```npm install```
 
-4. npm install _____:
-   * axios
-   * cors
-   * react-router-dom
-   * express
+6. Run bankend with the ```node songbank-backend/backend.js --prod``` command. The ```--prod``` flag stores playlist in the MONGODB Cloud. If you want to store
+playlists locally, remove the prod flag.
 
-5. Run bankend with the ***node songbank-backend/backend.js --prod*** command
+7. Run frontend with the ```npm start```
 
-6. Run frontend with the ***npm start***
-
-7. Website should launch in your default browser
+8. Website should launch in your default browser
 
 
 <br/><br/>
@@ -55,10 +63,40 @@ UML diagrams are not totally acurate when compared to the final version of Songb
 
 <br/><br/>
 
+
 <h3 align="center">Code Coverage</h3>
 
 Add Code Coverage Results once tests for our website are made.
 
 <br/><br/>
+
+
+<h3 align="center">Code Formatter</h3>
+
+For our Songbank project, we decided to use the code formatter Prettier. Prettier is a way to help a project keep a consistent "style" to their code. This allows
+for all collaborators to understand and edit files easily without the confusion of multiple different coding styles and formats. To install Prettier for this 
+project, run:
+
+```npm install prettier --save-dev```
+
+*NOTE*: Not all files have to be run through prettier for style checking. Create a ```.prettierignore``` to convey which parts of a project you want to be ignored
+and add these few lines:
+
+```
+# Ignore artifacts:
+build
+coverage
+```
+
+To run all files through prettier, use: ```npx prettier --write .```
+
+Further instructions for installation can be found [here](https://prettier.io/docs/en/install.html), along with additional style 
+rules [here](https://prettier.io/docs/en/options.html)
+
+Although Prettier is not required, Prettier was used throughout our project to ensure clarity and simplicity in our code. Additionally, using prettier alongside
+the code editor VSCode was extremely easy to use and very efficient. To find how to use Prettier with any editor, visit:
+https://prettier.io/docs/en/editors.html
+
+<br></br>
 
 [GO TO TOP](#songbank-project)  

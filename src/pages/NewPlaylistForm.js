@@ -28,9 +28,10 @@ function NewPlaylistForm(props) {
                 type="text"
                 name="title"
                 id="title"
+                class="search_bar"
                 value={playlist.title}
                 onChange={handleChange} />
-            <input type="button" value="Add Playlist" onClick={submitForm} />
+            <input type="button" value="Add Playlist" className="button_playlist" onClick={submitForm} />
         </form>
     );
 

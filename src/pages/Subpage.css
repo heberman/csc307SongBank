@@ -16,7 +16,42 @@
     font-family: "Monaco", Monospace, serif;
 }
 
-.button_playlist [type=submit], [type=reset], [type=button] {
+.home {
+    -webkit-appearance: none;
+    display: inline-block;
+    margin: auto;
+    margin-top: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background: #585858;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    text-transform: none;
+    padding: 0.75rem 1.25rem;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1;
+}
+
+/* .button_home [type=submit]:hover, [type=reset]:hover, [type=button]:hover {
+    border: 1px solid #ffffff;
+    background: #8d8d8d;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+.button_home, [type=submit]:focus, [type=reset]:hover, [type=submit]:active, [type=reset]:focus, [type=reset]:active, [type=button]:focus, [type=button]:active{
+    border: 1px solid #000000;
+    background: #585858;
+    color: #ffffff;
+    text-decoration: none;
+} */
+
+.button_playlist {
     -webkit-appearance: none;
     display: inline-block;
     margin: auto;
@@ -49,4 +84,27 @@
     background: #585858;
     color: #ffffff;
     text-decoration: none;
+}
+
+.search_bar {
+    width: 600px
+}
+
+a:link {
+    color: #3f3f3f;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #3f3f3f;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000000;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
 }
