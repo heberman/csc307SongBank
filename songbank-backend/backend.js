@@ -72,7 +72,6 @@ app.get('/auth/callback', (req, res) => {
             res.redirect('/');
         }
     });
-
 })
 
 app.get('/auth/search/:id', (req, res) => {

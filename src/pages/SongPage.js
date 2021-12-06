@@ -15,7 +15,6 @@ function SongPage() {
     const [song, setSong] = useState({});
     const [playlists, setPlaylists] = useState([]);
 
-
     async function getResults() {
         const songTitle = title;
         try {

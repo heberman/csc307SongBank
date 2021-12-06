@@ -42,4 +42,5 @@ function HomePage() {
         </center></>
     );
 }
+
 export default HomePage;
