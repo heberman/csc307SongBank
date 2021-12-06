@@ -66,6 +66,8 @@ UML diagrams are not totally acurate when compared to the final version of Songb
 
 <h3 align="center">Code Coverage</h3>
 
+Our test cases cover all of the functions we wrote for our backend (with exception to connection functions that use the Spotify API). This resulted in jest unit tests for six indiviudal functions.  
+
 <p align="center"><img src="./public/jesttests.PNG" alt="component" width="400"/></p>
 
 <br/><br/>
