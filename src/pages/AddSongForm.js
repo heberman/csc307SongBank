@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './Subpage.css';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 function AddSongForm(props) {
     const [results, setResults] = useState([]);
@@ -10,6 +11,8 @@ function AddSongForm(props) {
             val: '',
         }
     );
+
+    const [afterSearch, setAfterSearch] = useState(true);
 
     function handleChange(event) {
         const { value } = event.target;
@@ -22,6 +25,7 @@ function AddSongForm(props) {
     }
 
     async function getResults(song) {
+        setAfterSearch(false);
         const songTitle = song.val;
         try {
             const result = await axios.get("/auth/search/" + songTitle);
@@ -38,27 +42,20 @@ function AddSongForm(props) {
         }
     }
 
-    function ResultsHeader() {
-        return (
-            <thead>
-            <tr id="borders">
-                <th id="borders"><b>Playlist Title</b></th>
-                <th id="borders"><b>Artist</b></th>
-                <th id="borders"><b>Album</b></th>
-            </tr>
-            </thead>
-        );
-    }
+    
 
     function ResultsBody (props) {
         const rows = results.map((row, index) => {
             return (
                 <tr key={index}>
-                    <td>{row.name}</td>
+                    <td>
+                    <Link to={"/Songs/"+row.name+"/"+row.artists[0].name+"/"+row.album.name}>
+                        <td>{row.name}</td></Link>
+                    </td>
                     <td>{row.artists[0].name}</td>
                     <td>{row.album.name}</td>
                     <td class="button_alignment">
-                        <input type="button" value="Add Song" onClick={() => props.handleAdd(row)}/>
+                        <input type="button" value="Add Song" className="button_playlist" onClick={() => props.handleAdd(row)}/>
                     </td>
                 </tr>
             );
@@ -70,6 +67,18 @@ function AddSongForm(props) {
         );
     }
 
+    function ResultsHeader() {
+        return (
+            <thead>
+            <tr id="borders">
+                <th id="borders"><b>Song Title</b></th>
+                <th id="borders"><b>Artist</b></th>
+                <th id="borders"><b>Album</b></th>
+            </tr>
+            </thead>
+        );
+    }
+
 
     return (
         <form>
@@ -78,10 +87,15 @@ function AddSongForm(props) {
                 type="text"
                 name="search"
                 id="search"
+                class="search_bar"
                 value={query.val}
                 onChange={handleChange}/>
-            <input type="button" value="Search" onClick={submitForm} />
-            <ResultsHeader id="resultsHeader"/>
+            <input type="button" value="Search" className="button_playlist" onClick={submitForm} />
+            <br></br><br></br>
+            { (afterSearch === false) ? (
+                <ResultsHeader id="resultsHeader"/>
+                ) : (<div/>
+            )}
             <ResultsBody handleAdd={props.handleAdd}/>
             {/* <Link to="/play"><button style={{display: 'none'}} id="play-button">Play</button></Link> */}
         </form>

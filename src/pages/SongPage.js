@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import logo from "./logo.png"
 
 
 function SongPage() {
@@ -37,7 +38,9 @@ function SongPage() {
         console.log("hey there: "+player);
         return (
             <>
-            <img src={image}></img>
+            <img src={image} height="275" alt="album_pic"></img>
+            <br></br>
+            <br></br>
             <audio controls>
                 <source src={player} />
             </audio>
@@ -48,13 +51,13 @@ function SongPage() {
     return (
     <div className="container">
         <div className="image_pos">
-            <a href="/"><img src="logo.png" alt="logo" height="70" align="top"/></a>
+            <a href="/"><img src={logo} alt="logo" height="70" align="top"/></a>
         </div>
         <br></br>
         <br></br>
         <h1>{title}</h1>
-        <p>Artist: { artist }</p>
-        <p>Album: { album }</p>
+        <h3>Artist: { artist }</h3>
+        <p><b>Album: { album }</b></p>
         <LoadImg/>
     </div>
 

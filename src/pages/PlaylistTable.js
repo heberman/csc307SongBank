@@ -18,7 +18,7 @@ function TableBody (props) {
             <tr key={index}>
                 <td>{row.title}</td>
                 <td id="button_alignment">
-                    <button type="button" class="button_playlist" onClick={() => props.removeCharacter(index)}>Delete</button>
+                    <button type="button" className="button_playlist" onClick={() => props.removeCharacter(index)}>Delete</button>
                 </td>
                 <td id="button_alignment">
                     <Link to={'/Playlists/' + row.title}><button type="button" class="button_playlist">Edit</button></Link>

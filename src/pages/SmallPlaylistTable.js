@@ -17,7 +17,7 @@ function TableBody (props) {
             <tr key={index}>
                 <td>{row.title}</td>
                 <td class="button_alignment">
-                    <input type="button" value="Add Song" onClick={() => props.addSong(props.song, row)}/>
+                    <input type="button" value="Add Song" className = "button_playlist" onClick={() => props.addSong(props.song, row)}/>
                 </td>
             </tr>
         );
@@ -29,7 +29,7 @@ function TableBody (props) {
     );
 }
 
-function PlaylistTable(props) {
+function SmallPlaylistTable(props) {
     return (
         <table>
             <TableHeader />
@@ -38,4 +38,4 @@ function PlaylistTable(props) {
     );
 }
 
-export default PlaylistTable;
+export default SmallPlaylistTable;

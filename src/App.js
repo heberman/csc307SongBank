@@ -14,6 +14,8 @@ import IndivPlaylistPage from './pages/IndivPlaylistPage';
 
 import SearchPage from "./pages/SearchPage";
 
+import './pages/Subpage.css'
+
 function MyApp() {
 
     return (
