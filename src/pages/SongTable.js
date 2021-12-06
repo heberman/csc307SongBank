@@ -29,6 +29,10 @@ function TableBody (props) {
                     <button type="button"
                     class="button_playlist" onClick={() => props.removeCharacter(index)}>Remove</button>
                 </td>
+                <td class="button_alignment">
+                    <Link to={"/Songs/"+row.name+"/"+row.artists[0].name+"/"+row.album.name}><button type="button"
+                    class="button_playlist">INFO</button></Link>
+                </td>
             </tr>
         );
     });
