@@ -19,6 +19,7 @@ function TableBody (props) {
                 <td class="button_alignment">
                     <input type="button" value="Add Song" onClick={() => props.addSong(props.song, row)}/>
                 </td>
+                
             </tr>
         );
     });

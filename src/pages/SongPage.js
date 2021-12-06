@@ -10,7 +10,7 @@ function SongPage() {
     let { title } = useParams();
     let { artist } = useParams();
     let { album } = useParams();
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState('default');
     const [player, setPlayer] = useState('');
     const [song, setSong] = useState({});
     const [playlists, setPlaylists] = useState([]);
@@ -55,7 +55,7 @@ function SongPage() {
     }, [] );
 
     function LoadImg(){
-        console.log("hey there: "+player);
+
         return (
             <>
                 <img src={image} height="275" alt="could not find"></img>
@@ -70,11 +70,14 @@ function SongPage() {
 
     function GetTrackInfo(){
         getResults();
-        console.log("HELLO THERE" + album);
         return(
             <>
                 <br></br>
+                <img src="../../spoootify.png"  alt="album image not found"></img>
                 <br></br>
+                <audio controls>
+                    <source src={player} alt="could not find"/>
+                </audio>
             </>
         );
     }
@@ -104,7 +107,7 @@ function SongPage() {
             <h1>{title}</h1>
             <h3>Artist: { artist }</h3>
             <p><b>Album: { album }</b></p>
-            {(image==='')? <GetTrackInfo/> : <LoadImg/>}
+            {(image==='default')? <GetTrackInfo/> : <LoadImg/>}
             <br></br>
             <br></br>
             <p><b>Add this song to a playlist:</b></p>
