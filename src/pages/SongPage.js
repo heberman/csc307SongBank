@@ -72,7 +72,7 @@ function SongPage() {
         return(
             <>
                 <br></br>
-                <img src="../../spoootify.png"  alt="album image not found"></img>
+                <img src="../../spoootify.png"  alt="album information not found"></img>
                 <br></br>
                 <audio controls>
                     <source src={player} alt="could not find"/>
