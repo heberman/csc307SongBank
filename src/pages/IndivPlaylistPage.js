@@ -8,11 +8,32 @@ import logo from "./logo.png";
 function IndivPlaylistPage () {
     let { playlistName } = useParams();
 
+    useEffect(() => {
+
+        async function fetchAll(){
+            try {
+                const response = await axios.get('http://localhost:5000/playlists?title=' + playlistName);
+                return response.data[0];
+            }
+            catch (error){
+                //We're not handling errors. Just logging into the console.
+                console.log(error);
+                return false;
+            }
+        }
+        
+        fetchAll().then( result => {
+            if (result)
+                setPlaylist(result);
+        });
+    }, [playlistName] );
+
     const [playlist, setPlaylist] = useState({
         "title": playlistName,
         "songs": [],
         "_id": ''
     });
+
 
     async function removeOneCharacter (index) {
         try {
@@ -65,26 +86,6 @@ function IndivPlaylistPage () {
             return false;
         }
     }
-
-    useEffect(() => {
-        async function fetchAll(){
-            try {
-                const response = await axios.get('http://localhost:5000/playlists?title=' + playlistName);
-                return response.data[0];
-            }
-            catch (error){
-                //We're not handling errors. Just logging into the console.
-                console.log(error);
-                return false;
-            }
-        }
-        
-        fetchAll().then( result => {
-            if (result)
-                setPlaylist(result);
-        });
-    }, [] );
-
 
     const PlaylistHeader = () => {
         return <h1>{playlistName}</h1>;
