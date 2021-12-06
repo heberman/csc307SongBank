@@ -45,7 +45,6 @@ app.get('/auth/login', (req, res) => {
         redirect_uri: spotify_redirect_uri,
         state: state
     })
-    console.log(spotify_client_id);
     res.redirect('https://accounts.spotify.com/authorize/?' + auth_query_parameters.toString());
 })
 
@@ -78,8 +77,6 @@ app.get('/auth/callback', (req, res) => {
 
 app.get('/auth/search/:id', (req, res) => {
     const id = req.params['id']
-    console.log(access_token);
-    console.log(id);
     var searchOptions = {
         url: `https://api.spotify.com/v1/search?q=${id}&type=track&limit=5`,
         headers: {
@@ -88,28 +85,20 @@ app.get('/auth/search/:id', (req, res) => {
             'Authorization' :  `Bearer ${access_token}`
         },
     };
-    console.log('MADE IT HERE');
-
     request.get(searchOptions, function(error, response, body) {
         if (!error && response.statusCode === 200) {
-            //access_token = //body.access_token;
-            //console.log(' :) ' + body);
             songTitle = body;
             res.send(songTitle);
-            console.log("hello: " + songTitle);
-            //res.redirect('/');
         }
 
     });
 })
 
 app.get('/auth/search/:id/:artist/:album', (req, res) => {
-    //songTitle = '';
     const id = req.params['id'];
     const artist = req.params['artist'];
     const album = req.params['album'];
-    console.log(access_token);
-    console.log(id);
+
     var searchOptions = {
         url: `https://api.spotify.com/v1/search?q=${id}+${artist}+${album}&type=track%2Cartist%2Calbum&limit=5`,
         headers: {
@@ -118,16 +107,10 @@ app.get('/auth/search/:id/:artist/:album', (req, res) => {
             'Authorization' :  `Bearer ${access_token}`
         },
     };
-    console.log('MADE IT HERE');
-
     request.get(searchOptions, function(error, response, body) {
         if (!error && response.statusCode === 200) {
-            //access_token = //body.access_token;
-            //console.log(' :) ' + body);
             songTitle = body;
             res.send(songTitle);
-            console.log("hello: " + songTitle);
-            //res.redirect('/');
         }
 
     });
