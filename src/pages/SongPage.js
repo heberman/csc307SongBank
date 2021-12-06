@@ -19,12 +19,11 @@ function SongPage() {
     async function getResults() {
         const songTitle = title;
         try {
-            const result = await axios.get("/auth/search/" + songTitle);
+            const result = await axios.get("/auth/search/" + songTitle + '/' + artist + '/' + album);
             setSong(result.data['tracks']['items'][0]);
             if (result !== undefined) {
                 const searchImage = (result.data)['tracks']['items'][0]['album']['images'][0]['url'];
                 const searchPlayer = (result.data)['tracks']['items'][0]['preview_url'];
-                //console.log('results'+searchResults);
                 setImage(searchImage);
                 setPlayer(searchPlayer);
             }
@@ -43,7 +42,6 @@ function SongPage() {
             return response.data;
         }
         catch (error){
-            //We're not handling errors. Just logging into the console.
             console.log(error);
             return false;
         }
@@ -57,16 +55,26 @@ function SongPage() {
     }, [] );
 
     function LoadImg(){
-        getResults();
         console.log("hey there: "+player);
         return (
             <>
-                <img src={image} height="275"></img>
+                <img src={image} height="275" alt="could not find"></img>
                 <br></br>
                 <br></br>
                 <audio controls>
-                    <source src={player} />
+                    <source src={player} alt={"could not find"}/>
                 </audio>
+            </>
+        );
+    }
+
+    function GetTrackInfo(){
+        getResults();
+        console.log("HELLO THERE" + album);
+        return(
+            <>
+                <br></br>
+                <br></br>
             </>
         );
     }
@@ -96,7 +104,7 @@ function SongPage() {
             <h1>{title}</h1>
             <h3>Artist: { artist }</h3>
             <p><b>Album: { album }</b></p>
-            <LoadImg/>
+            {(image==='')? <GetTrackInfo/> : <LoadImg/>}
             <br></br>
             <br></br>
             <p><b>Add this song to a playlist:</b></p>

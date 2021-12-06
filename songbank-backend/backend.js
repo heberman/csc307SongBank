@@ -6,11 +6,8 @@ const songServices = require('./song-services');
 var app = express();
 const port = 5000;
 
-///spot api /////////////////////////////////////////////////////////
-
 const request = require('request');
 const dotenv = require('dotenv');
-const { access } = require('fs');
 
 global.access_token = '';
 
@@ -18,16 +15,8 @@ global.songTitle = '';
 
 dotenv.config();
 
-////////////////////////////////////////////////////////////////////
-
-
 app.use(cors());
 app.use(express.json());
-
-// app.listen(port, () => {
-//     console.log(`Example app listening at http://localhost:${port}`);
-// });
-// SPOTIFY OAUTH CODE: ////////////////////////////////////////
 
 var spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
 var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -88,7 +77,6 @@ app.get('/auth/callback', (req, res) => {
 })
 
 app.get('/auth/search/:id', (req, res) => {
-    //songTitle = '';
     const id = req.params['id']
     console.log(access_token);
     console.log(id);
@@ -115,14 +103,15 @@ app.get('/auth/search/:id', (req, res) => {
     });
 })
 
-app.get('/auth/search/:id/:artist', (req, res) => {
+app.get('/auth/search/:id/:artist/:album', (req, res) => {
     //songTitle = '';
     const id = req.params['id'];
     const artist = req.params['artist'];
+    const album = req.params['album'];
     console.log(access_token);
     console.log(id);
     var searchOptions = {
-        url: `https://api.spotify.com/v1/search?q=${id}+${artist}&type=track%2Cartist&limit=5`,
+        url: `https://api.spotify.com/v1/search?q=${id}+${artist}+${album}&type=track%2Cartist%2Calbum&limit=5`,
         headers: {
             'Accept' : 'application/json',
             'Content-Type' : 'application/json',
@@ -144,19 +133,9 @@ app.get('/auth/search/:id/:artist', (req, res) => {
     });
 })
 
-
-app.get('/auth/track', (req, res) => {
-    res.send(songTitle)
-})
-
-
 app.get('/auth/token', (req, res) => {
     res.json({ access_token: access_token})
 })
-
-///////////////////////////////////////////////////////////////
-
-
 
 const playlists = {
     playlist_list : []
