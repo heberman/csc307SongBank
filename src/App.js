@@ -2,8 +2,6 @@ import React from 'react';
 
 import { BrowserRouter, Route} from 'react-router-dom';
 
-// We will create these two pages in a moment
-
 import HomePage from './pages/HomePage';
 
 import SongPage from './pages/SongPage';
@@ -22,16 +20,15 @@ function MyApp() {
         <>
         <BrowserRouter>
         <switch>
+
             <Route exact path='/' component={HomePage} />
             <Route exact path='/Search' component={SearchPage} />
             <Route exact path='/Playlists' component={PlaylistPage}/>
             <Route exact path='/Songs/:title/:artist/:album' component={SongPage} />
             <Route path='/Playlists/:playlistName' children={<IndivPlaylistPage />} />
+        
         </switch>
         </BrowserRouter>
-        {/* <div>
-            <SearchBar handleSubmit={searchByTitle} />
-        </div> */}
         </>
 
     );

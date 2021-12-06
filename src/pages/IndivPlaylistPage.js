@@ -1,18 +1,39 @@
 import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
-import SongTable from './SongTable'
-import AddSongForm from './AddSongForm'
-import logo from "./logo.png"
+import SongTable from './SongTable';
+import AddSongForm from './AddSongForm';
+import logo from "./logo.png";
 
 function IndivPlaylistPage () {
     let { playlistName } = useParams();
+
+    useEffect(() => {
+
+        async function fetchAll(){
+            try {
+                const response = await axios.get('http://localhost:5000/playlists?title=' + playlistName);
+                return response.data[0];
+            }
+            catch (error){
+                //We're not handling errors. Just logging into the console.
+                console.log(error);
+                return false;
+            }
+        }
+        
+        fetchAll().then( result => {
+            if (result)
+                setPlaylist(result);
+        });
+    }, [playlistName] );
 
     const [playlist, setPlaylist] = useState({
         "title": playlistName,
         "songs": [],
         "_id": ''
     });
+
 
     async function removeOneCharacter (index) {
         try {
@@ -38,25 +59,7 @@ function IndivPlaylistPage () {
             return false;
         }
     }
-
-    // async function findAndAddSong(song) {
-    //     const songTitle = song.val;
-    //     try {
-    //         const result = await axios.get("/auth/search/" + songTitle);
-    //         if (result !== undefined) {
-    //             const songToAdd = result.data["tracks"]["items"][0];
-    //             updateList(songToAdd);
-    //         }
-    //         else {
-    //             console.log("Not found.");
-    //         }
-    //     }
-    //     catch(error) {
-    //         console.log("I'M A FAILURE");
-    //         console.log(error);
-    //     }
-    // }
-
+    
     function updateList(song) {
         makePostCall(song).then( result => {
             if (result && result.status === 204) {
@@ -84,26 +87,6 @@ function IndivPlaylistPage () {
         }
     }
 
-    async function fetchAll(){
-        try {
-            const response = await axios.get('http://localhost:5000/playlists?title=' + playlistName);
-            return response.data[0];
-        }
-        catch (error){
-            //We're not handling errors. Just logging into the console.
-            console.log(error);
-            return false;
-        }
-    }
-
-    useEffect(() => {
-        fetchAll().then( result => {
-            if (result)
-                setPlaylist(result);
-        });
-    }, [] );
-
-
     const PlaylistHeader = () => {
         return <h1>{playlistName}</h1>;
     }
@@ -118,7 +101,6 @@ function IndivPlaylistPage () {
             <PlaylistHeader />
             <SongTable characterData={playlist} removeCharacter={removeOneCharacter}/>
             <AddSongForm handleAdd={updateList}/>
-            {/*<SearchBar handleSubmit={findAndAddSong}/>*/}
         </div>
     );
 }

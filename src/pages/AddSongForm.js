@@ -68,10 +68,6 @@ function AddSongForm(props) {
                     <td class="button_alignment">
                         <input type="button" value="Add Song" className="button_playlist" onClick={() => props.handleAdd(row)}/>
                     </td>
-                    <td class="button_alignment">
-                        <Link to={"/Songs/"+row.name+"/"+row.artists[0].name+"/"+row.album.name}><button type="button"
-                    class="button_playlist">INFO</button></Link>
-                </td>
                 </tr>
             );
         });
@@ -81,19 +77,6 @@ function AddSongForm(props) {
             </tbody>
         );
     }
-
-    function ResultsHeader() {
-        return (
-            <thead>
-            <tr id="borders">
-                <th id="borders"><b>Song Title</b></th>
-                <th id="borders"><b>Artist</b></th>
-                <th id="borders"><b>Album</b></th>
-            </tr>
-            </thead>
-        );
-    }
-
 
     return (
         <form>

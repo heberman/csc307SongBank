@@ -6,11 +6,8 @@ const songServices = require('./song-services');
 var app = express();
 const port = 5000;
 
-///spot api /////////////////////////////////////////////////////////
-
 const request = require('request');
 const dotenv = require('dotenv');
-const { access } = require('fs');
 
 global.access_token = '';
 
@@ -18,16 +15,8 @@ global.songTitle = '';
 
 dotenv.config();
 
-////////////////////////////////////////////////////////////////////
-
-
 app.use(cors());
 app.use(express.json());
-
-// app.listen(port, () => {
-//     console.log(`Example app listening at http://localhost:${port}`);
-// });
-// SPOTIFY OAUTH CODE: ////////////////////////////////////////
 
 var spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
 var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -56,7 +45,6 @@ app.get('/auth/login', (req, res) => {
         redirect_uri: spotify_redirect_uri,
         state: state
     })
-    console.log(spotify_client_id);
     res.redirect('https://accounts.spotify.com/authorize/?' + auth_query_parameters.toString());
 })
 
@@ -84,14 +72,10 @@ app.get('/auth/callback', (req, res) => {
             res.redirect('/');
         }
     });
-
 })
 
 app.get('/auth/search/:id', (req, res) => {
-    //songTitle = '';
     const id = req.params['id']
-    console.log(access_token);
-    console.log(id);
     var searchOptions = {
         url: `https://api.spotify.com/v1/search?q=${id}&type=track&limit=5`,
         headers: {
@@ -100,63 +84,40 @@ app.get('/auth/search/:id', (req, res) => {
             'Authorization' :  `Bearer ${access_token}`
         },
     };
-    console.log('MADE IT HERE');
-
     request.get(searchOptions, function(error, response, body) {
         if (!error && response.statusCode === 200) {
-            //access_token = //body.access_token;
-            //console.log(' :) ' + body);
             songTitle = body;
             res.send(songTitle);
-            console.log("hello: " + songTitle);
-            //res.redirect('/');
         }
 
     });
 })
 
-app.get('/auth/search/:id/:artist', (req, res) => {
-    //songTitle = '';
+app.get('/auth/search/:id/:artist/:album', (req, res) => {
     const id = req.params['id'];
     const artist = req.params['artist'];
-    console.log(access_token);
-    console.log(id);
+    const album = req.params['album'];
+
     var searchOptions = {
-        url: `https://api.spotify.com/v1/search?q=${id}+${artist}&type=track%2Cartist&limit=5`,
+        url: `https://api.spotify.com/v1/search?q=${id}+${artist}+${album}&type=track%2Cartist%2Calbum&limit=5`,
         headers: {
             'Accept' : 'application/json',
             'Content-Type' : 'application/json',
             'Authorization' :  `Bearer ${access_token}`
         },
     };
-    console.log('MADE IT HERE');
-
     request.get(searchOptions, function(error, response, body) {
         if (!error && response.statusCode === 200) {
-            //access_token = //body.access_token;
-            //console.log(' :) ' + body);
             songTitle = body;
             res.send(songTitle);
-            console.log("hello: " + songTitle);
-            //res.redirect('/');
         }
 
     });
 })
 
-
-app.get('/auth/track', (req, res) => {
-    res.send(songTitle)
-})
-
-
 app.get('/auth/token', (req, res) => {
     res.json({ access_token: access_token})
 })
-
-///////////////////////////////////////////////////////////////
-
-
 
 const playlists = {
     playlist_list : []

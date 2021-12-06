@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -11,21 +10,19 @@ function SongPage() {
     let { title } = useParams();
     let { artist } = useParams();
     let { album } = useParams();
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState('default');
     const [player, setPlayer] = useState('');
     const [song, setSong] = useState({});
     const [playlists, setPlaylists] = useState([]);
 
-
     async function getResults() {
         const songTitle = title;
         try {
-            const result = await axios.get("/auth/search/" + songTitle);
+            const result = await axios.get("/auth/search/" + songTitle + '/' + artist + '/' + album);
             setSong(result.data['tracks']['items'][0]);
             if (result !== undefined) {
                 const searchImage = (result.data)['tracks']['items'][0]['album']['images'][0]['url'];
                 const searchPlayer = (result.data)['tracks']['items'][0]['preview_url'];
-                //console.log('results'+searchResults);
                 setImage(searchImage);
                 setPlayer(searchPlayer);
             }
@@ -44,7 +41,6 @@ function SongPage() {
             return response.data;
         }
         catch (error){
-            //We're not handling errors. Just logging into the console.
             console.log(error);
             return false;
         }
@@ -58,15 +54,28 @@ function SongPage() {
     }, [] );
 
     function LoadImg(){
-        getResults();
-        console.log("hey there: "+player);
+
         return (
             <>
-                <img src={image} alt="album_pic"height="275"></img>
+                <img src={image} height="275" alt="could not find"></img>
                 <br></br>
                 <br></br>
                 <audio controls>
-                    <source src={player} />
+                    <source src={player} alt={"could not find"}/>
+                </audio>
+            </>
+        );
+    }
+
+    function GetTrackInfo(){
+        getResults();
+        return(
+            <>
+                <br></br>
+                <img src="../../spoootify.png"  alt="album information not found"></img>
+                <br></br>
+                <audio controls>
+                    <source src={player} alt="could not find"/>
                 </audio>
             </>
         );
@@ -97,7 +106,7 @@ function SongPage() {
             <h1>{title}</h1>
             <h3>Artist: { artist }</h3>
             <p><b>Album: { album }</b></p>
-            <LoadImg/>
+            {(image==='default')? <GetTrackInfo/> : <LoadImg/>}
             <br></br>
             <br></br>
             <p><b>Add this song to a playlist:</b></p>
