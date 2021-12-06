@@ -66,24 +66,24 @@ function IndivPlaylistPage () {
         }
     }
 
-    async function fetchAll(){
-        try {
-            const response = await axios.get('http://localhost:5000/playlists?title=' + playlistName);
-            return response.data[0];
-        }
-        catch (error){
-            //We're not handling errors. Just logging into the console.
-            console.log(error);
-            return false;
-        }
-    }
-
     useEffect(() => {
+        async function fetchAll(){
+            try {
+                const response = await axios.get('http://localhost:5000/playlists?title=' + playlistName);
+                return response.data[0];
+            }
+            catch (error){
+                //We're not handling errors. Just logging into the console.
+                console.log(error);
+                return false;
+            }
+        }
+        
         fetchAll().then( result => {
             if (result)
                 setPlaylist(result);
         });
-    }, [playlist] );
+    }, [] );
 
 
     const PlaylistHeader = () => {
