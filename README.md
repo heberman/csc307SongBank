@@ -66,7 +66,7 @@ UML diagrams are not totally acurate when compared to the final version of Songb
 
 <h3 align="center">Code Coverage</h3>
 
-<p align="center"><img src="./public/jesttests.png" alt="component" width="400"/></p>
+<p align="center"><img src="./public/jesttests.PNG" alt="component" width="400"/></p>
 
 <br/><br/>
 
