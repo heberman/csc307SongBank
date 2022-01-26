@@ -18,8 +18,8 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 
-var spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
-var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+var spotify_client_id = '5f8ac560aa6a4deca706bde30ad28531';
+var spotify_client_secret = '2809ad5eae644f209e4905c065e21d73';
 
 var spotify_redirect_uri = 'http://localhost:3000/auth/callback';
 
